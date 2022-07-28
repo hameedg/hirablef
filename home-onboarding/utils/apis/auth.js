@@ -12,16 +12,18 @@ export const usernameAvailable = (username) =>
   axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/username-available`, {
     username,
   });
-export const emailAvail = (email) => 
+export const emailAvail = (email) =>
   axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/email-available`, {
     email,
   });
 
-export const verifyOtp = (otp, email) =>
-  axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/verify-otp`, {
-    otp: `${otp}`,
-    email,
-  });
+export const verifyOtp = (123456, 'example.@gmail.com');
+// (otp, email) =>
+//   axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/verify-otp`, {
+//     {
+//     otp: `${123456}`,
+//     email,
+//   });
 export const requestOtp = (email, reason) =>
   axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/request-otp`, {
     email,

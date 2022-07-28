@@ -104,3 +104,31 @@
 #otp[type='number'] {
   -moz-appearance: textfield;
 }
+
+@media (max-width: 480px) {
+  .home-img {
+    background-image: url('/images/landing-page-m.png');
+  }
+}
+@media (min-width: 481px) and (max-width: 767px) {
+  .home-img {
+    background-image: url('/images/landing-page-t.png');
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .home-img {
+    background-image: url('/images/landing-page-t.png');
+  }
+}
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .home-img {
+    background-image: url('/images/landing-page-l.png');
+  }
+}
+
+@media (min-width: 1281px) {
+  .home-img {
+    background-image: url('/images/landing-page.png');
+  }
+}

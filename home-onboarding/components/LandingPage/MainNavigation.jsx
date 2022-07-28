@@ -3,6 +3,8 @@ import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 
+const SignUp = dynamic(() => import('../../modals/signup'));
+
 const MainNavigation = () => {
   const router = useRouter();
   const param = router.query.signup;

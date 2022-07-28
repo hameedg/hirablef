@@ -1,15 +1,34 @@
 import React, { useEffect, useState } from 'react';
-// import Error from '../../components/common/InputError';
+import Link from 'next/dist/client/link';
 import classNames from '../../utils/constants/classNames';
 import Input from '../../components/common/Input';
 import InputMessage from '../../components/common/InputMessage';
+import InputError from '../../components/common/InputError';
 
 const Interests = () => {
-  const [email, setEmail] = useState();
+  const [otp, setOtp] = useState({ isEnabled: false, otpData: '' });
+  const { isEnabled, otpData } = otp;
+  const [steps, setSteps] = useState(8);
+  const [data, setData] = useState({
+    email: '',
+  });
+  const [errors, setErrors] = useState({
+    otpError: '',
 
-  const [otpData, setOtpData] = useState([]);
-  const [otpLoad, setOtpLoad] = useState('');
-  const [otpError, setOtpError] = useState('');
+    otpLoad: '',
+  });
+  const { email } = data;
+
+  const { otpError, otpLoad } = errors;
+  const handleSetErrors = (field, value) =>
+    setErrors((f) => ({ ...f, [field]: value }));
+  const setValidation = (val) => handleSetErrors('validated', val);
+  const resetErrors = () =>
+    setErrors((f) => ({
+      ...f,
+
+      otpError: '',
+    }));
 
   useEffect(() => {
     if (otpData.length >= 6) {
@@ -29,9 +48,9 @@ const Interests = () => {
             handleSetErrors('otpError', 'Invalid OTP !');
           });
       });
+      setOtp((f) => ({ ...f, isEnabled: true }));
     } else {
-      setOtpLoad('');
-      //   handleSetErrors('otpLoad', '');
+      handleSetErrors('otpLoad', '');
     }
   }, [otpData]);
 
@@ -40,6 +59,21 @@ const Interests = () => {
       setOtp((f) => ({ ...f, otpData: e.target.value }));
     }
     resetErrors();
+  };
+
+  const reSendOTP = () => {
+    setOtp((f) => ({ ...f, isEnabled: false }));
+    import('../../utils/apis/auth').then(({ requestOtp }) =>
+      requestOtp(email, 'confirmEmail ')
+        .then(() => {
+          document.getElementById('otp').focus();
+          setOtp((f) => ({ ...f, isEnabled: true }));
+        })
+        .catch(() => {
+          setOtp({ isEnabled: false, otpData: '' });
+          setSteps(7);
+        })
+    );
   };
 
   return (
@@ -138,19 +172,21 @@ const Interests = () => {
                 <Input type="text" label="Email" value={email} disabled />
 
                 <Input
-                  handleChange={(e) => setOtpData(e.target.value)}
+                  handleChange={handleOTP}
                   label="OTP"
                   name="otpData"
                   id="otp"
                   placeholder="Enter OTP"
                   type="number"
+                  value={otpData}
+                  disabled={!isEnabled}
                 />
-
-                <InputMessage
-                  message={otpLoad}
-                  loading={otpLoad === 'Validating OTP'}
-                />
-
+                {otpLoad && (
+                  <InputMessage
+                    message={otpLoad}
+                    loading={otpLoad === 'Validating OTP'}
+                  />
+                )}
                 {otpError && <InputError error={otpError} />}
               </div>
               <hr
@@ -162,6 +198,7 @@ const Interests = () => {
                 need to check your <strong>spam</strong> folder.
               </p>
               <button
+                onClick={() => reSendOTP()}
                 type="button"
                 className="bg-signup-blue disabled:cursor-default disabled:bg-opacity-50 text-sm mx-auto text-white px-3 py-2.5 rounded-md font-bold mt-10"
                 style={{ lineHeight: '1.375rem' }}
@@ -170,9 +207,13 @@ const Interests = () => {
               </button>
               <p className="text-base text-center mt-2">
                 Not your account ?{' '}
-                <span className="font-semibold cursor-pointer text-signup-blue">
-                  Log Out
-                </span>
+                <Link href="/">
+                  <a>
+                    <span className="font-semibold cursor-pointer text-signup-blue">
+                      Log Out
+                    </span>
+                  </a>
+                </Link>
               </p>
             </div>
           </div>

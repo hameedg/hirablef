@@ -284,9 +284,6 @@ const SignUp = () => {
                 {passwordError && <InputError error={passwordError} />}
               </div>
             </div>
-
-            {/* *********Graduation************* */}
-
             <Link href="/signup/location">
               <a>
                 <button
