@@ -1,5 +1,5 @@
 const Error = ({ error }) => (
-  <p className="font-bold flex items-center mb-4 text-[0.8rem] text-[#e0133e]">
+  <p className="font-bold flex items-center text-[0.8rem] text-[#e0133e]">
     <svg
       className="mr-1.5"
       focusable="false"

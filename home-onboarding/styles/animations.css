@@ -1,27 +1,15 @@
-.animation-fade {
-  animation: fade 2s linear forwards;
+.fadeinout {
+  animation: fadeinout 4s infinite;
 }
 
-@keyframes fade {
+@keyframes fadeinout {
   0% {
-    opacity: 1;
-    scale: 1;
-  }
-  25% {
-    opacity: 0.5;
-    scale: 0.4;
-  }
-
-  50% {
     opacity: 0;
-    scale: 0.7;
   }
-  75% {
-    opacity: 0.5;
-    scale: 0.4;
+  50% {
+    opacity: 1;
   }
   100% {
-    opacity: 1;
-    scale: 1;
+    opacity: 0;
   }
 }

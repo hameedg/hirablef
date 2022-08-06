@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/dist/client/link';
 import classNames from '../../utils/constants/classNames';
-import Input from '../../components/common/Input';
+import Input from '../../modals/signup/Input';
 import InputMessage from '../../components/common/InputMessage';
 import InputError from '../../components/common/InputError';
 
@@ -111,42 +111,42 @@ const Interests = () => {
               <div className="flex mx-auto">
                 <div
                   className={classNames(
-                    'h-1 w-6 rounded-md mr-1.5 cursor-pointer bg-blue-500'
+                    'h-1 w-6 rounded-md mr-1.5 cursor-pointer bg-gray-200'
                   )}
                 />
                 <div
                   className={classNames(
-                    'h-1 w-6 rounded-md mr-1.5 cursor-pointer bg-blue-500'
+                    'h-1 w-6 rounded-md mr-1.5 cursor-pointer bg-gray-200'
                   )}
                 />
                 <div
                   className={classNames(
-                    'h-1 w-6 rounded-md mr-1.5 cursor-pointer bg-blue-500'
+                    'h-1 w-6 rounded-md mr-1.5 cursor-pointer bg-gray-200'
                   )}
                 />
                 <div
                   className={classNames(
-                    'h-1 w-6 rounded-md mr-1.5 cursor-pointer bg-blue-500'
+                    'h-1 w-6 rounded-md mr-1.5 cursor-pointer bg-gray-200'
                   )}
                 />
                 <div
                   className={classNames(
-                    'h-1 w-6 rounded-md mr-1.5 cursor-pointer bg-blue-500'
+                    'h-1 w-6 rounded-md mr-1.5 cursor-pointer bg-gray-200'
                   )}
                 />
                 <div
                   className={classNames(
-                    'h-1 w-6 rounded-md mr-1.5 cursor-pointer bg-blue-500'
+                    'h-1 w-6 rounded-md mr-1.5 cursor-pointer bg-gray-200'
                   )}
                 />
                 <div
                   className={classNames(
-                    'h-1 w-6 rounded-md mr-1.5 cursor-pointer bg-blue-500'
+                    'h-1 w-6 rounded-md mr-1.5 cursor-pointer bg-gray-200'
                   )}
                 />
                 <div
                   className={classNames(
-                    'h-1 w-6 rounded-md mr-1.5 cursor-pointer bg-blue-500'
+                    'h-1 w-6 rounded-md mr-1.5 cursor-pointer bg-gray-200'
                   )}
                 />
               </div>
@@ -179,7 +179,7 @@ const Interests = () => {
                   placeholder="Enter OTP"
                   type="number"
                   value={otpData}
-                  disabled={!isEnabled}
+                  // disabled={!isEnabled}
                 />
                 {otpLoad && (
                   <InputMessage
@@ -197,14 +197,16 @@ const Interests = () => {
                 Click on the link in the email to verify your account. You may
                 need to check your <strong>spam</strong> folder.
               </p>
-              <button
-                onClick={() => reSendOTP()}
-                type="button"
-                className="bg-signup-blue disabled:cursor-default disabled:bg-opacity-50 text-sm mx-auto text-white px-3 py-2.5 rounded-md font-bold mt-10"
-                style={{ lineHeight: '1.375rem' }}
-              >
-                Don&apos;t see it? Resend
-              </button>
+              <Link href="/signup/location">
+                <button
+                  // onClick={() => reSendOTP()}
+                  type="button"
+                  className="bg-signup-blue disabled:cursor-default disabled:bg-opacity-50 text-sm mx-auto text-white px-3 py-2.5 rounded-md font-bold mt-10"
+                  style={{ lineHeight: '1.375rem' }}
+                >
+                  Don&apos;t see it? Resend
+                </button>
+              </Link>
               <p className="text-base text-center mt-2">
                 Not your account ?{' '}
                 <Link href="/">

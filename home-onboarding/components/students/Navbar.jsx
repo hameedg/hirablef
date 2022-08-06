@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 
 const SignUp = dynamic(() => import('../../modals/signup'));
 
-const MainNavigation = () => {
+const Navbar = () => {
   const router = useRouter();
   const param = router.query.signup;
   useEffect(() => {
@@ -63,4 +63,4 @@ const MainNavigation = () => {
   );
 };
 
-export default MainNavigation;
+export default Navbar;
