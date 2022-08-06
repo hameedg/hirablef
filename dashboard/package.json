@@ -1,0 +1,59 @@
+{
+  "name": "collabbi",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "check-lint": "eslint . --ext ts --ext tsx --ext js",
+    "format": "prettier --write .",
+    "dev": "next dev -p 61210",
+    "start": "next start -p $PORT",
+    "build": "next build",
+    "export": "next export",
+    "heroku-postbuild": "npm run build"
+  },
+  "engines": {
+    "npm": "6.x",
+    "node": "14.x"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.15",
+    "@graxmonzo/tailwind-caret-color": "^2.0.5",
+    "@reduxjs/toolkit": "^1.6.2",
+    "axios": "^0.21.4",
+    "cookie-cutter": "^0.2.0",
+    "draft-js": "^0.11.7",
+    "draft-js-export-html": "^1.4.1",
+    "draft-js-import-html": "^1.4.1",
+    "js-cookie": "^3.0.1",
+    "lodash": "^4.17.21",
+    "next": "^11.1.2",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-flags-select": "^2.1.2",
+    "react-image-crop": "^9.0.4",
+    "react-joyride": "^2.3.1",
+    "react-phone-input-2": "^2.14.0",
+    "react-redux": "^7.2.5",
+    "react-router-dom": "^6.2.2",
+    "tailwind-scrollbar-hide": "^1.1.7",
+    "universal-cookie": "^4.0.4"
+  },
+  "devDependencies": {
+    "@next/eslint-plugin-next": "^11.1.2",
+    "autoprefixer": "^10.3.4",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.26.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "postcss": "^8.3.6",
+    "prettier": "^2.4.1",
+    "tailwindcss": "^2.2.15"
+  }
+}
