@@ -22,8 +22,8 @@ const MainNavigation = () => {
           <Link href="/" passHref>
             <div className="cursor-pointer">
               <img
-                alt="Collabbi"
-                src="/images/collabbi-logo.png"
+                alt="Hirable"
+                src="/images/hirable logo (gradient).svg"
                 className="inline-block max-w-full border-0 h-7"
               />
             </div>
@@ -50,9 +50,9 @@ const MainNavigation = () => {
             </Link>
           </div>
           <div className="ml-auto hidden mid-lg:block">
-            <Link href="/login" passHref>
+            <Link href="/students" passHref>
               <div className="block text-base mr-3 text-black cursor-pointer leading-[1.6em] ">
-                Login
+                Students
               </div>
             </Link>
           </div>

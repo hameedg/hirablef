@@ -1,10 +1,8 @@
 /* eslint-disable react/no-array-index-key */
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import Footer from '../students/Footer';
 
+import Card from './Card';
+import Hero from './Hero';
+import Logos from './Logos';
 // const bankofamerica = require('../../public/svg/bankofamerica.svg');
 // const wellsfargo = require('../../public/svg/wellsfargo.svg');
 // const captialone = require('../../public/svg/captialone.svg');
@@ -12,260 +10,57 @@ import Footer from '../students/Footer';
 // const td = require('../../public/svg/td.svg');
 // const rbc = require('../../public/svg/rbc.svg');
 
-const amazone = require('../../public/logos/amazon.svg');
-const apple = require('../../public/logos/apple.svg');
-const careem = require('../../public/logos/careem.svg');
-const deliveroo = require('../../public/logos/deliveroo.svg');
-const discord = require('../../public/logos/discord.svg');
-const goole = require('../../public/logos/goole.svg');
-const grab = require('../../public/logos/grab.svg');
-const jumia = require('../../public/logos/jumia.svg');
-const klarna = require('../../public/logos/klarna.svg');
-const lalamove = require('../../public/logos/lalamove.svg');
-const meta = require('../../public/logos/meta.svg');
-const microsoft = require('../../public/logos/microsoft.svg');
-const noon = require('../../public/logos/noon.svg');
-const nubank = require('../../public/logos/nubank.svg');
-const rappi = require('../../public/logos/rappi.svg');
-const shopee = require('../../public/logos/shopee.svg');
-const spotify = require('../../public/logos/spotify.svg');
-const talabat = require('../../public/logos/talabat.svg');
-const tesla = require('../../public/logos/tesla.svg');
-const tiktok = require('../../public/logos/tiktok.svg');
-
-const LandingPage = () => {
+const LandingPage = () => (
   // const bankImages = [bankofamerica, wellsfargo, captialone, citi, rbc, td];
-  const [allCompanies, setAllCompanies] = useState([
-    amazone,
-    apple,
-    careem,
-    deliveroo,
-    discord,
-    goole,
-    grab,
-    jumia,
-    klarna,
-    lalamove,
-    meta,
-    microsoft,
-    noon,
-    nubank,
-    rappi,
-    shopee,
-    spotify,
-    talabat,
-    tesla,
-    tiktok,
-  ]);
 
-  const [CompanyImages, setCompanyImages] = useState([
-    amazone,
-    apple,
-    careem,
-    deliveroo,
-    discord,
-    goole,
-    grab,
-    jumia,
-    klarna,
-    lalamove,
-  ]);
+  <div className="bg-white">
+    <Hero />
+    <Logos />
+    {/* SECTION 3 */}
+    <div
+      className="max-w-[850px] mx-auto bg-white pb-12 mt-16 ma"
+      data-aos="fade-up"
+      data-aos-delay="220"
+    >
+      <h3 className="text-4xl antialiased text-center font-semibold mb-6">
+        Creating an ecosystem of opportunities
+      </h3>
+      <p className="text-lg mb-8 leading-[1.875rem] text-center">
+        Recruiting is so broken in that it focuses so much on background
+        information through resumes rather than the candidate’s actual abilities
+        to perform on the job. That’s why millions of great candidates are not
+        getting hired and are working multiple jobs to make ends meet while 72%
+        of recruiters struggling to find qualified candidates.
+      </p>
+    </div>
 
-  useEffect(() => {
-    AOS.init();
-    AOS.refresh();
-  }, []);
-
-  const [loop, setLoop] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setAllCompanies((pre) => {
-        pre.unshift(pre.pop());
-        return pre;
-      });
-      setCompanyImages((prev) => {
-        prev[loop] = allCompanies[allCompanies.length - 1];
-        return prev;
-      });
-      setLoop((prev) => {
-        if (prev === 9) return 0;
-        prev += 1;
-        return prev;
-      });
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [loop, allCompanies]);
-
-  return (
-    <div className="bg-white">
-      <div className="home-img border-0 bg-no-repeat bg-cover h-[100vh] sm-mid-tablet:bg-bottom bg-right">
-        <div className="sm:grid sm:grid-cols-10 sm:gap-3 md:gap-6 mx-auto max-w-screen-xl px-6 md:px-12">
-          <section className="col-span-10 lg:col-span-4 pt-[19%]">
-            <h1 className="text-5xl tracking-tight leading-leading-first font-bold mb-8 sm-mid-tablet:text-3xl sm-mid-tablet:leading-snug">
-              Bridging companies and campuses to
-              <span className="text-purple-500"> empower students</span>
-            </h1>
-            <p className=" text-lg mb-8 mt-0">
-              GradTheory is creating a future where it is exciting and fair to
-              pursue your career in the ever-evolving world of technology.
-            </p>
-          </section>
-        </div>
-      </div>
-      <div
-        className=" text-center pt-28 pb-16 sm-mid-tablet:pt-16 overflow-x-hidden"
-        data-aos="fade-up"
-        data-aos-delay="220"
-      >
-        <h3
-          className="leading-first md:text-sec md:leading-sec font-body mb-8 font-semibold "
-          style={{
-            fontSize: 'calc(1.425rem + 1vw)',
-            fontWeight: '600',
-          }}
-        >
-          They can be your future employers
+    {/* SECTION 4 */}
+    <div
+      className="bg-[#fffaf5] mid-lg:block grid grid-cols-2  mt-18 py-16 pr-4"
+      data-aos="fade-up"
+      data-aos-delay="220"
+    >
+      <img
+        src="/images/collaboration.png"
+        alt="collabration"
+        className="w-fit object-cover h-96 rounded-md"
+      />
+      <div className="ml-8 mid-lg:mt-8 mt-0">
+        <h3 className="text-4xl antialiased font-semibold mb-6">
+          Introducing GradTheory
         </h3>
-        <div className="flex-wrap justify-center">
-          <div className="mx-auto w-4/5 lg-max:w-full lg-max:pl-2">
-            <div className="grid grid-cols-5 grid-rows-2 text-center flex-wrap mid-lg:grid-cols-2 mid-lg:grid-rows-4 mid-lg:w-11/12 mid-lg:mx-auto sm-mid-max:w-full">
-              {CompanyImages.slice(0, 10).map((img, index) => (
-                <div
-                  key={index}
-                  className="flex flex-wrap flex-grow-0 flex-shrink mb-12 text-center m-5 max-w-company-images max-h-company-images min-h-company-images min-w-company-images justify-center mid-lg:mx-auto"
-                >
-                  <Image
-                    className={loop === index ? 'fadeinout' : null}
-                    src={img}
-                    height="100%"
-                    alt="Company"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* SECTION 3 */}
-      <div
-        className="max-w-[850px] mx-auto bg-white pb-12 mt-16 ma"
-        data-aos="fade-up"
-        data-aos-delay="220"
-      >
-        <h3 className="text-4xl antialiased text-center font-semibold mb-6">
-          Creating an ecosystem of opportunities
-        </h3>
-        <p className="text-lg mb-8 leading-[1.875rem] text-center">
-          Recruiting is so broken in that it focuses so much on background
-          information through resumes rather than the candidate’s actual
-          abilities to perform on the job. That’s why millions of great
-          candidates are not getting hired and are working multiple jobs to make
-          ends meet while 72% of recruiters struggling to find qualified
-          candidates.
+        <p className="text-lg mb-8 leading-[1.875rem]">
+          Recent graduates want great jobs. Companies want great talent.
+          GradTheory enables collaboration between companies, universities and
+          their students by creating an ecosystem of opportunities where
+          students are rewarded with opportunities they deserve
         </p>
       </div>
+    </div>
 
-      {/* SECTION 4 */}
-      <div
-        className="bg-[#fffaf5] mid-lg:block grid grid-cols-2  mt-18 py-16 pr-4"
-        data-aos="fade-up"
-        data-aos-delay="220"
-      >
-        <img
-          src="/images/collaboration.png"
-          alt="collabration"
-          className="w-fit object-cover h-96 rounded-md"
-        />
-        <div className="ml-8 mid-lg:mt-8 mt-0">
-          <h3 className="text-4xl antialiased font-semibold mb-6">
-            Introducing GradTheory
-          </h3>
-          <p className="text-lg mb-8 leading-[1.875rem]">
-            Recent graduates want great jobs. Companies want great talent.
-            GradTheory enables collaboration between companies, universities and
-            their students by creating an ecosystem of opportunities where
-            students are rewarded with opportunities they deserve
-          </p>
-        </div>
-      </div>
+    <Card />
 
-      <section
-        className="relative py-8 md:py-12"
-        data-aos="fade-up"
-        data-aos-delay="220"
-      >
-        <div className="relative mx-auto max-w-7xl px-4 lg:px-4">
-          <div className="no-scrollbar relative flex -mx-4 w-screen lg:mx-0 lg:w-auto">
-            <div className="mx-auto flex w-fit flex-row">
-              <div className="flex flex-col gap-y-6 px-4 md:flex-row md:gap-x-8 lg:px-0">
-                <a className="group block h-full w-full min-w-[320px] flex-1 cursor-pointer overflow-hidden rounded-xl bg-white text-plum-80 shadow hover:shadow-md">
-                  <div className="relative h-[200px] w-full md:h-[225px] overflow-hidden">
-                    <img
-                      className=""
-                      src="https://www.empathy.com/_next/image?url=%2Fimages%2Ffeatured%2Flibrary%402x.png&w=1920&q=75"
-                      alt=""
-                    />
-                  </div>
-                  <div className="p-10">
-                    <div className="text-[#1e1928cc] text-[16px] leading-6 md:leading-7 md:text-lg antialiased tracking-tight font-bold">
-                      For Students
-                    </div>
-                    <p className="mt-4 text-[#1e1928cc] font-medium">
-                      We help candidates showcase their skills and experience to
-                      employers as a way to get hired by connecting student
-                      experiences to opportunities&nbsp;
-                      <span className="whitespace-nowrap">-&gt;</span>
-                    </p>
-                  </div>
-                </a>
-                <a className="group block h-full w-full min-w-[320px] flex-1 cursor-pointer overflow-hidden rounded-xl bg-white text-plum-80 shadow hover:shadow-md">
-                  <div className="relative h-[200px] w-full md:h-[225px] overflow-hidden">
-                    <img
-                      className=""
-                      src="https://www.empathy.com/_next/image?url=%2Fimages%2Ffeatured%2Fcod%402x.png&w=3840&q=75"
-                      alt=""
-                    />
-                  </div>
-                  <div className="p-10">
-                    <div className="text-[#1e1928cc] text-[16px] leading-6 md:leading-7 md:text-lg antialiased tracking-tight font-bold">
-                      For companies
-                    </div>
-                    <p className="mt-4 text-[#1e1928cc] font-medium">
-                      We partner with employers to help companies discover the
-                      untapped talent and redefine the way hiring takes
-                      place&nbsp;
-                      <span className="whitespace-nowrap">-&gt;</span>
-                    </p>
-                  </div>
-                </a>
-                <a className="group block h-full w-full min-w-[320px] flex-1 cursor-pointer overflow-hidden rounded-xl bg-white text-plum-80 shadow hover:shadow-md">
-                  <div className="relative h-[200px] w-full md:h-[225px] overflow-hidden">
-                    <img
-                      className=""
-                      src="https://www.empathy.com/_next/image?url=%2Fimages%2Ffeatured%2Fawards%402x.png&w=3840&q=75"
-                      alt=""
-                    />
-                  </div>
-                  <div className="p-10">
-                    <div className="text-[#1e1928cc] text-[16px] leading-6 md:leading-7 md:text-lg antialiased tracking-tight font-bold">
-                      For colleges
-                    </div>
-                    <p className="mt-4 text-[#1e1928cc] font-medium">
-                      We collaborate with colleges to transform the educational
-                      opportunities and introduce student talents to the
-                      industry&nbsp;
-                      <span className="whitespace-nowrap">-&gt;</span>
-                    </p>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <Footer />
-      {/* 
+    {/* 
 
       
       <div
@@ -456,8 +251,6 @@ const LandingPage = () => {
           </div>
         </div>
       </div> */}
-    </div>
-  );
-};
-
+  </div>
+);
 export default LandingPage;

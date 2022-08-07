@@ -1,5 +1,5 @@
 {
-  "name": "collabbi",
+  "name": "Hirable",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -27,6 +27,7 @@
     "react-flags-select": "^2.1.2",
     "react-icons": "^4.4.0",
     "react-phone-input-2": "^2.14.0",
+    "swiper": "^8.3.2",
     "tailwind-scrollbar-hide": "^1.1.7"
   },
   "devDependencies": {
