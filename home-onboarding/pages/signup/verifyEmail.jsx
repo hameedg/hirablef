@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/dist/client/link';
 import classNames from '../../utils/constants/classNames';
-import Input from '../../modals/signup/Input';
+import Input from '../../components/common/Input';
 import InputMessage from '../../components/common/InputMessage';
 import InputError from '../../components/common/InputError';
 
@@ -17,7 +17,7 @@ const Interests = () => {
 
     otpLoad: '',
   });
-  const { email } = data;
+  let { email } = data;
 
   const { otpError, otpLoad } = errors;
   const handleSetErrors = (field, value) =>
@@ -31,6 +31,7 @@ const Interests = () => {
     }));
 
   useEffect(() => {
+    email = sessionStorage.getItem('email');
     if (otpData.length >= 6) {
       handleSetErrors('otpLoad', 'Validating OTP');
       setOtp((f) => ({ ...f, isEnabled: false }));
@@ -169,7 +170,13 @@ const Interests = () => {
                 created your account. Verify your email to continue
               </p>
               <div className="w-full">
-                <Input type="text" label="Email" value={email} disabled />
+                <Input
+                  type="text"
+                  label="Email"
+                  value={email}
+                  id="new"
+                  disabled
+                />
 
                 <Input
                   handleChange={handleOTP}

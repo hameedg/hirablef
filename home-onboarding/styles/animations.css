@@ -1,8 +1,15 @@
-.fadeout {
-  opacity: 0;
-  transition: visibility 0s 1s, opacity 1s linear;
+.fadeinout {
+  animation: fadeinout 4s infinite;
 }
-.fadein {
-  opacity: 1;
-  transition: visibility 0s 1s, opacity 1s linear;
+
+@keyframes fadeinout {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

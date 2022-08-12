@@ -9,14 +9,14 @@ function Footer() {
           <div className="flex grid-flow-col flex-col md:grid md:gap-8">
             <div className="col-span-2 grid grid-flow-col grid-cols-2 gap-y-10 gap-x-10 lg:grid-cols-3 ">
               <div>
-                <h3 className="text-[18px] tracking-tighter antialiased font-semibold leading-7">
+                <h3 className="md:text-[18px] text-base tracking-[-0.014em] antialiased font-semibold leading-[24px] md:leading-[26px]">
                   Solutions
                 </h3>
                 <ul className="mt-4 space-y-3 md:space-y-4">
                   <li>
                     <a
                       href="#"
-                      className="text-[14px] leading-5 text-[#1e1928cc] hover:text-[#1e1928] md:text-[16px] md:leading-6 tracking-tighter antialiased"
+                      className="text-[14px] leading-5 text-[#1e1928cc] hover:text-[#1e1928] md:text-[16px] md:leading-6 tracking-[-0.006em] md:-[-0.011em] antialiased"
                     >
                       Employers & HR
                     </a>
@@ -24,14 +24,14 @@ function Footer() {
                 </ul>
               </div>
               <div>
-                <h3 className="text-[18px] tracking-tighter antialiased font-semibold leading-7">
+                <h3 className="md:text-[18px] text-base tracking-[-0.014em] antialiased font-semibold leading-[24px] md:leading-[26px]">
                   Company
                 </h3>
                 <ul className="mt-4 space-y-3 md:space-y-4">
                   <li>
                     <a
                       href="#"
-                      className="text-[14px] leading-5 text-[#1e1928cc] hover:text-[#1e1928] md:text-[16px] md:leading-6 tracking-tighter antialiased"
+                      className="text-[14px] leading-5 text-[#1e1928cc] hover:text-[#1e1928] md:text-[16px] md:leading-6 tracking-[-0.006em] md:-[-0.011em] antialiased"
                     >
                       About
                     </a>
@@ -39,14 +39,14 @@ function Footer() {
                 </ul>
               </div>
               <div className="row-span-2 md:row-span-1">
-                <h3 className="text-[18px] tracking-tighter antialiased font-semibold leading-7">
+                <h3 className="md:text-[18px] text-base tracking-[-0.014em] antialiased font-semibold leading-[24px] md:leading-[26px]">
                   Resources
                 </h3>
                 <ul className="mt-4 space-y-3 md:space-y-4">
                   <li>
                     <a
                       href="#"
-                      className="text-[14px] leading-5 text-[#1e1928cc] hover:text-[#1e1928] md:text-[16px] md:leading-6 tracking-tighter antialiased"
+                      className="text-[14px] leading-5 text-[#1e1928cc] hover:text-[#1e1928] md:text-[16px] md:leading-6 tracking-[-0.006em] md:-[-0.011em] antialiased"
                     >
                       Knowledge Base
                     </a>
@@ -131,13 +131,13 @@ function Footer() {
           </div>
           <div className="-mx-8 -mb-16 mt-10 w-screen bg-plum-8 px-8 py-8 pb-16 md:m-0 md:w-auto md:bg-transparent md:p-0">
             <div className="flex-row md:mt-28 md:flex md:items-start md:justify-between">
-              <p className="text-[#1e1928a3] mb-8 max-w-lg text-sm md:mb-0 lg:max-w-2xl">
+              <p className="text-[#1e1928a3] leading-[22px] tracking-[-0.006em] mb-8 max-w-lg text-sm md:mb-0 lg:max-w-2xl">
                 We are creating a future where students are rewarded in the
                 pursuit of their career based on their abilities and experience.
               </p>
             </div>
             <div className="text-[#1e1928a3] text-sm font-light flex flex-col justify-between pt-20 text-plum-64 md:pt-4 lg:flex-row">
-              <span className="block font-medium">India</span>© 2022 Hirable.
+              <span className="block font-medium">India</span>© 2022 Collabbi.
               All rights reserved.
             </div>
           </div>
