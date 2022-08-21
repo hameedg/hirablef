@@ -1,15 +1,20 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/dist/client/router';
-
-import Link from 'next/dist/client/link';
+import { useDispatch } from 'react-redux';
 import classNames from '../../utils/constants/classNames';
 import Input from '../../components/common/Input';
 import InputError from '../../components/common/InputError';
+import {
+  setCollege,
+  setGraduationYear,
+  setDegree,
+  setMajor,
+} from '../../store/slices/user';
 
 const Graduation = () => {
-  const [steps, setSteps] = useState(3);
-
+  const dispatch = useDispatch();
+  const [next, setNextpage] = useState(false);
   const [data, setData] = useState({
     college: '',
     graduationYear: 0,
@@ -79,48 +84,36 @@ const Graduation = () => {
   };
 
   const handleErrors = (field, value) => {
-    switch (steps) {
-      case 3:
-        switch (field) {
-          case 'graduationYear':
-            checkGradYear(value);
-            break;
-          case 'college':
-            checkCollege(value);
-            break;
-          case 'degree':
-            checkDegree(value);
-            break;
-          case 'major':
-            checkMajor(value);
-            break;
-          default:
-            break;
-        }
+    switch (field) {
+      case 'graduationYear':
+        checkGradYear(value);
         break;
-
+      case 'college':
+        checkCollege(value);
+        break;
+      case 'degree':
+        checkDegree(value);
+        break;
+      case 'major':
+        checkMajor(value);
+        break;
       default:
         break;
     }
   };
 
   const checkErrorsExist = (exists) => {
-    switch (steps) {
-      case 3:
-        if (
-          checkCollege(college, true) &&
-          checkDegree(degree, true) &&
-          checkGradYear(graduationYear, true) &&
-          checkMajor(major, true)
-        ) {
-          setValidation(true);
-        } else {
-          setValidation(false);
-        }
-        break;
-
-      default:
-        break;
+    if (
+      checkCollege(college, true) &&
+      checkDegree(degree, true) &&
+      checkGradYear(graduationYear, true) &&
+      checkMajor(major, true)
+    ) {
+      setNextpage(true);
+      // setValidation(true);
+    } else {
+      setNextpage(false);
+      // setValidation(false);
     }
   };
 
@@ -128,9 +121,19 @@ const Graduation = () => {
     setData((f) => ({ ...f, [e.target.name]: e.target.value }));
     setTimeout(() => handleErrors(e.target.name, e.target.value), 100);
   };
-  useEffect(() => checkErrorsExist(), [data, steps]);
+  useEffect(() => checkErrorsExist(), [data]);
 
   const router = useRouter();
+  function nextPage() {
+    dispatch(setCollege(college));
+    dispatch(setGraduationYear(graduationYear));
+    dispatch(setDegree(degree));
+    dispatch(setMajor(major));
+
+    setTimeout(() => {
+      router.push('/signup/personalinfo');
+    }, 500);
+  }
 
   return (
     <>
@@ -236,7 +239,7 @@ const Graduation = () => {
               />
               {collegeError && <InputError error={collegeError} />}
 
-              <div className="flex items-center">
+              <div className="flex items-center pb-6">
                 <div>
                   <label
                     className="my-2.5 font-semibold leading-relaxed block text-sm"
@@ -280,30 +283,15 @@ const Graduation = () => {
                   }}
                   className="w-3/5"
                 >
-                  <label
-                    className="my-2.5 w-full  font-semibold leading-relaxed block text-sm"
-                    style={{ color: '#201e27' }}
-                  >
-                    Degree
-                  </label>
-                  <select
-                    placeholder="Degree"
+                  <Input
+                    label="Degree"
+                    type="text"
+                    placeholder="B Tech"
                     name="degree"
                     value={degree}
-                    onChange={handleChange}
-                    style={{ lineHeight: '1.15rem' }}
-                    className="rounded-md mb-2.5 border w-full text-sm p-3 outline-none focus:border-2 focus:border-focus-cyan"
-                  >
-                    <option value="">Select Degree Name</option>
-                    <option value="BTech">BTech</option>
-                    <option value="BSc">BSc</option>
-                    <option value="BBA">BBA</option>
-                    <option value="BA">BA</option>
-                    <option value="Bcom">Bcom</option>
-                    <option value="BCA">BCA</option>
-                    <option value="BFA">BFA</option>
-                    <option value="BE">BE</option>
-                  </select>
+                    handleChange={handleChange}
+                  />
+
                   {degreeError && <InputError error={degreeError} />}
                 </div>
               </div>
@@ -320,17 +308,16 @@ const Graduation = () => {
                 {majorError && <InputError error={majorError} />}
               </div>
               <div className="flex justify-center">
-                <Link href="/signup/personalinfo">
-                  <a>
-                    <button
-                      type="button"
-                      className="p-3 bg-black text-white rounded-md text-sm font-medium disabled:bg-gray-600 disabled:cursor-not-allowed mt-3 w-40"
-                      // disabled={!validated}
-                    >
-                      Next
-                    </button>
-                  </a>
-                </Link>
+                <a>
+                  <button
+                    onClick={nextPage}
+                    type="button"
+                    className="p-3 bg-black text-white rounded-md text-sm font-medium disabled:bg-gray-600 disabled:cursor-not-allowed mt-3 w-40 disabled:bg-opacity-50"
+                    disabled={!next}
+                  >
+                    Next
+                  </button>
+                </a>
               </div>
             </div>
           </div>

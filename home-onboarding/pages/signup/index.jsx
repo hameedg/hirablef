@@ -1,45 +1,41 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import axios from 'axios';
 import { useRouter } from 'next/router';
+import { useDispatch } from 'react-redux';
 import Input from '../../components/common/Input';
 import classNames from '../../utils/constants/classNames';
 import InputError from '../../components/common/InputError';
-import InputMessage from '../../components/common/InputMessage';
-
-import 'react-phone-input-2/lib/style.css';
+import { setname, setemail, setpassword } from '../../store/slices/user';
 
 const SignUp = () => {
+  const dispatch = useDispatch();
   const router = useRouter();
+  const [next, setNext] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const [passwordToggle, setPasswordToggle] = useState(false);
-  const steps = 1;
-
   const [data, setData] = useState({
     name: '',
-    username: '',
     email: '',
     password: '',
   });
   const [errors, setErrors] = useState({
     fNameError: '',
-    usernameError: '',
     emailError: '',
     passwordError: '',
   });
   const { email, name, password } = data;
-  const { emailError, fNameError, passwordError, emailLoad } = errors;
+  const { emailError, fNameError, passwordError } = errors;
 
   // //////////////////ERRORS //////////////////
   const handleSetErrors = (field, value) =>
     setErrors((f) => ({ ...f, [field]: value }));
 
-  const setValidation = (val) => handleSetErrors('validated', val);
-
   const resetErrors = () =>
     setErrors((f) => ({
       ...f,
       fNameError: '',
-      usernameError: '',
       emailError: '',
       passwordError: '',
     }));
@@ -86,46 +82,34 @@ const SignUp = () => {
 
   // /////////////////////////////////////////////
   const handleErrors = (field, value) => {
-    switch (steps) {
-      case 1:
-        switch (field) {
-          case 'name':
-            checkName(value);
-            break;
-          case 'email':
-            checkEmail(value);
-            break;
-          case 'password':
-            checkPassword(value);
-            break;
-          default:
-            break;
-        }
+    switch (field) {
+      case 'name':
+        checkName(value);
+        break;
+      case 'email':
+        checkEmail(value);
+        break;
+      case 'password':
+        checkPassword(value);
         break;
       default:
         break;
     }
   };
 
-  const checkErrorsExist = (exists) => {
-    switch (steps) {
-      case 1:
-        if (
-          checkName(name, true) &&
-          checkEmail(email, true) &&
-          checkPassword(password, true)
-        ) {
-          setValidation(true);
-        } else {
-          setValidation(false);
-        }
-        break;
-      default:
-        break;
+  const checkErrorsExist = () => {
+    if (
+      checkName(name, true) &&
+      checkEmail(email, true) &&
+      checkPassword(password, true)
+    ) {
+      setNext(true);
+    } else {
+      setNext(false);
     }
   };
 
-  useEffect(() => checkErrorsExist(), [data, steps]);
+  useEffect(() => checkErrorsExist(), [data]);
 
   const handleChange = (e) => {
     setData((f) => ({ ...f, [e.target.name]: e.target.value }));
@@ -133,7 +117,6 @@ const SignUp = () => {
   };
 
   useEffect(() => {
-    setValidation(false);
     let timeoutId = null;
     if (checkEmail(email, true)) {
       handleSetErrors('emailLoad', 'Validating Email');
@@ -144,18 +127,20 @@ const SignUp = () => {
     if (email.length > 0 && checkEmail(email, true)) {
       timeoutId = setTimeout(
         () => {
-          import('../../utils/apis/auth').then(({ emailAvail }) => {
-            emailAvail(email)
-              .then(() => {
-                handleSetErrors('emailLoad', 'Email Validated');
-                checkErrorsExist();
-              })
-              .catch(() => {
-                handleSetErrors('emailError', 'Email exists!, Please Login');
-                handleSetErrors('emailLoad', '');
-                handleSetErrors('validated', false);
-              });
-          });
+          // import('../../utils/apis/auth').then(({ emailAvail }) => {
+          //   emailAvail(email)
+          //     .then(() => {
+          //       handleSetErrors('emailLoad', 'Email Validated');
+          //       checkErrorsExist();
+          //     })
+          //     .catch(() => {
+          //       handleSetErrors('emailError', 'Email exists!, Please Login');
+          //       handleSetErrors('emailLoad', '');
+          //       handleSetErrors('validated', false);
+          //     });
+          // });
+          handleSetErrors('emailLoad', 'Email Validated');
+          checkErrorsExist();
         },
 
         2000
@@ -165,11 +150,39 @@ const SignUp = () => {
   }, [email]);
 
   function submitData() {
-    // console.log(data);
-    sessionStorage.setItem('email', data.email);
-    setTimeout(() => {
-      router.push('/signup/verifyEmail');
-    }, 500);
+    setLoading(true);
+    dispatch(setname(data.name));
+    dispatch(setemail(data.email));
+    dispatch(setpassword(data.password));
+
+    const options = {
+      method: 'POST',
+      url: 'http://localhost:8080/api/v1/users',
+      data: {
+        email: data.email,
+        username: 'al',
+        name: data.name,
+        password: data.password,
+        // ref: invite,
+      },
+    };
+
+    axios
+      .request(options)
+      .then((response) => {
+        // console.log(response.data.apiToken);
+        router.push('/signup/verifyEmail');
+      })
+      .catch((error) => {
+        // console.log(error.response.status);
+        router.push('/signup/verifyEmail');
+        if ((error.response.status = 400)) {
+          handleSetErrors('emailError', 'Email exists!, Please Login');
+        } else {
+          handleSetErrors('emailError', 'Invalid Email');
+        }
+        setLoading(false);
+      });
   }
 
   return (
@@ -201,33 +214,6 @@ const SignUp = () => {
         {/*  */}
         <div className="w-full max-w-xl" style={{ color: '#141820' }}>
           <form className={classNames('block w-full')}>
-            <button
-              type="button"
-              className={classNames(
-                'md:font-semibold w-full flex justify-center items-center border border-signup-blue rounded-sm  px-3 py-2.5 text-sm text-signup-blue'
-              )}
-            >
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/24px-Google_%22G%22_Logo.svg.png?20210618182606"
-                alt="google signin"
-                className="h-4 mr-3"
-              />
-              <p style={{ fontSize: '15px' }}>Continue with Google</p>
-            </button>
-            <div
-              className={classNames('flex justify-between mb-3.8')}
-              style={{ marginTop: '1.1625rem' }}
-            >
-              <hr
-                className="w-full my-4"
-                style={{ backgroundColor: '#dfe3eb' }}
-              />
-              <p className="mx-2.5 mb-4 text-base antialiased">or</p>
-              <hr
-                className="w-full my-4"
-                style={{ backgroundColor: '#dfe3eb' }}
-              />
-            </div>
             {/* *********NAme Email************* */}
 
             <div>
@@ -253,12 +239,7 @@ const SignUp = () => {
                   placeholder="Enter Email Address"
                   type="email"
                 />
-                {emailLoad && (
-                  <InputMessage
-                    message={emailLoad}
-                    loading={emailLoad === 'Validating Email'}
-                  />
-                )}
+
                 {emailError && <InputError error={emailError} />}
               </div>
               <div className="relative">
@@ -296,20 +277,23 @@ const SignUp = () => {
                 {passwordError && <InputError error={passwordError} />}
               </div>
             </div>
-            {/* <Link href="/signup/verifyEmail"> */}
-            <a>
-              <button
-                onClick={submitData}
-                type="button"
-                className={classNames(
-                  'bg-signup-blue disabled:cursor-not-allowed disabled:bg-opacity-50 mt-6 w-36 text-sm mx-auto mb-12 block text-white px-3 py-2.5 rounded-md transition-all duration-200 ease-in font-bold'
-                )}
-                style={{ lineHeight: '1.375rem' }}
-              >
-                Next
-              </button>
-            </a>
-            {/* </Link> */}
+
+            <button
+              disabled={!next}
+              onClick={submitData}
+              type="button"
+              className="bg-signup-blue flex items-center justify-center  disabled:cursor-not-allowed disabled:bg-opacity-50 mt-6 w-36 text-sm mx-auto mb-12 text-white px-3 py-2.5 rounded-md transition-all duration-200 ease-in font-bold"
+              style={{ lineHeight: '1.375rem' }}
+            >
+              {loading ? (
+                <div
+                  className="animate-spin h-4 w-4 mr-2 rounded-full border-2 border-focus-cyan "
+                  style={{ borderRightColor: 'transparent' }}
+                />
+              ) : (
+                ' Next'
+              )}
+            </button>
           </form>
 
           <div style={{ margin: '0 10%' }}>

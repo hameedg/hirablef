@@ -2,17 +2,15 @@ import React from 'react';
 // import CompanyImage from '../Other Components/CompanyImage.png';
 import Image from 'next/image';
 
-const CompanyCards = () => {
+const CompanyCards = ({ title, company, image }) => {
   return (
     <div className="md:w-[380px] cursor-pointer hover:shadow-md rounded-2xl h-fit border-[1px] p-4">
       <div className="flex items-start justify-between w-[100%]">
         <div className="max-w-[70%]">
-          <p className="font-inter text-lg leading-[1.4em] font-bold">
-            Product Analyst, Web Experimentation
+          <p className="font-inter w-[270px] text-lg leading-[1.4em] font-bold">
+            {title}
           </p>
-          <p className="font-inter text-base mt-1 leading-[1.4em]">
-            American Express
-          </p>
+          <p className="font-inter text-base mt-1 leading-[1.4em]">{company}</p>
         </div>
         <div className="max-w-[30%]">
           {/* <img
@@ -25,7 +23,7 @@ const CompanyCards = () => {
             height={'48px'}
             width="48px"
             alt="Company"
-            src="/images/CompanyImage.png"
+            src={`/images/${image}.jpg`}
           />
         </div>
       </div>

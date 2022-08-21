@@ -76,7 +76,7 @@ const JobsModal = ({ handleClose }) => (
       <hr className="border-border my-3.8 -mx-3.8" />
       <div className="flex ml-[1.125rem]">
         <div className="flex space-x-3">
-          <Button>
+          {/* <Button>
             <svg
               data-v-4a7785f2=""
               aria-hidden="true"
@@ -96,36 +96,18 @@ const JobsModal = ({ handleClose }) => (
               />
             </svg>
             <span className="inline-block">Save</span>
-          </Button>
+          </Button> */}
           <Button>
-            <svg
-              data-v-4a7785f2=""
-              aria-hidden="true"
-              focusable="false"
-              data-prefix="fal"
-              data-icon="share"
-              role="img"
-              width="15.75"
-              height="14"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 576 512"
-            >
-              <path
-                data-v-4a7785f2=""
-                fill="currentColor"
-                d="M564.907 196.35L388.91 12.366C364.216-13.45 320 3.746 320 40.016v88.154C154.548 130.155 0 160.103 0 331.19c0 94.98 55.84 150.231 89.13 174.571 24.233 17.722 58.021-4.992 49.68-34.51C100.937 336.887 165.575 321.972 320 320.16V408c0 36.239 44.19 53.494 68.91 27.65l175.998-184c14.79-15.47 14.79-39.83-.001-55.3zm-23.127 33.18l-176 184c-4.933 5.16-13.78 1.73-13.78-5.53V288c-171.396 0-295.313 9.707-243.98 191.7C72 453.36 32 405.59 32 331.19 32 171.18 194.886 160 352 160V40c0-7.262 8.851-10.69 13.78-5.53l176 184a7.978 7.978 0 0 1 0 11.06z"
-              />
-            </svg>
-            <span className="inline-block">Share</span>
+            <span className="inline-block">Get Experience</span>
           </Button>
         </div>
         <div className="ml-auto">
           <button
             type="button"
-            className="flex items-center bg-btn-green rounded-md hover:bg-btn-green-hover px-4 font-semibold h-10 text-sm select-none"
+            className="shadow-sm space-x-1.5 text-white bg-blue-600 border self-center duration-150 ease-in border-blue-500 px-4 flex items-center justify-center rounded font-semibold text-sm leading-[18.2px] antialiased h-10 select-none hover:shadow-md hover:-translate-y-0.5"
           >
             <Flash />
-            <span className="ml-1.5">Quick Apply</span>
+            Get Referral
           </button>
         </div>
       </div>

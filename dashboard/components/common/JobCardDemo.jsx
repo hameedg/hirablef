@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from './Button';
+import Flash from '../svg/Flash';
 
 const JobCardDemo = ({ openModal }) => (
   <div className="border p-3.8 group bg-white rounded-md hover:shadow-lg duration-150 ease-in cursor-pointer">
@@ -49,7 +50,14 @@ const JobCardDemo = ({ openModal }) => (
         </svg>
         <span className="inline-block">Save</span>
       </Button>
-      <Button handleClick={openModal}>Learn More</Button>
+      <button
+        type="button"
+        onClick={openModal}
+        className="shadow-sm space-x-1.5 text-white bg-blue-600 border self-center duration-150 ease-in border-blue-500 px-4 flex items-center justify-center rounded font-semibold text-sm leading-[18.2px] antialiased h-10 select-none hover:shadow-md hover:-translate-y-0.5"
+      >
+        <Flash />
+        Get Referral
+      </button>
     </div>
   </div>
 );

@@ -71,7 +71,7 @@ const UtilityBoard = () => {
               id="first"
               text="Companies"
               url="/companies"
-              image="https://images.jumpstart.me/frontend/communities/Cover+Photo/Web/jobs-card.png"
+              image="/images/companies final.svg"
             />
             <LinkCard
               id="second"
@@ -83,13 +83,13 @@ const UtilityBoard = () => {
               id="third"
               text="Job Openings"
               url="/job_openings"
-              image="https://images.jumpstart.me/frontend/communities/Cover+Photo/Web/jobs-card.png"
+              image="/images/trending openings.svg"
             />
             <LinkCard
               id="forth"
               text="Hiring Challenges"
               url="/hiring_challenges"
-              image="https://images.jumpstart.me/frontend/communities/Cover+Photo/Web/jobs-card.png"
+              image="/images/hiring challenge final.svg"
             />
           </div>
           <div className=" mt-7 w-[60.313rem] rounded-2xl mx-auto cursor-default">

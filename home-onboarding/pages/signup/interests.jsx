@@ -1,44 +1,35 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/dist/client/router';
-import Link from 'next/link';
+import { useDispatch } from 'react-redux';
 import Error from '../../components/common/InputError';
 import classNames from '../../utils/constants/classNames';
+import { setRoles } from '../../store/slices/user';
 
 const Interests = () => {
-  const [roles, setRoles] = useState([]);
+  const dispatch = useDispatch();
+  const [next, setNextpage] = useState(false);
+  const [roles, setNewRoles] = useState([]);
   const router = useRouter();
   const [dataSet, setDataSet] = useState([
-    { name: 'IT System Administrator' },
-    { name: 'Sales' },
-    { name: 'Data Scientist' },
-    { name: 'Data Engineer' },
-    { name: 'ML Engineer' },
-    { name: 'Back End Developer' },
-    { name: 'Product Manager' },
-    { name: 'HR' },
-    { name: 'Full Stack Developer' },
-    { name: 'Front End Developer' },
-    { name: 'Business Operations' },
-    { name: 'Finance' },
-    { name: 'Legal' },
+    { name: 'Community Manager' },
+    { name: 'Entrepreneur in Residence ' },
+    { name: 'Sales & Marketing' },
+    { name: 'Research Fellow' },
+    { name: 'Biomedical Engineer' },
+    { name: 'Biochemist' },
+    { name: 'Microbiologist' },
+    { name: 'Blockchain Developer' },
     { name: 'Product Designer' },
-    { name: 'Devops Engineer' },
-    { name: 'Marketing' },
-    { name: 'Systems Engineer' },
-    { name: 'IOS Engineer' },
-    { name: 'Consulting' },
-    { name: 'Android Engineer' },
-    { name: 'Supply Chain Management' },
-    { name: 'Network Engineer' },
-    { name: 'Content Strategist' },
-    { name: 'Security Engineer' },
-    { name: 'Recruiting' },
-    { name: 'Accounting' },
-    { name: 'Hardware Engineer' },
+    { name: 'Fullstack Developer' },
+    { name: 'Content Writer' },
+    { name: 'Human Resources(HR)' },
     { name: 'Graphic Designer' },
-    { name: 'Logistics Coordinator' },
-    { name: 'Copywriting' },
+    { name: 'Digital Marketing' },
+    { name: 'DevOps Engineer' },
+    { name: 'Product Manager' },
+    { name: 'Business Development' },
+    { name: 'Software Developer' },
     { name: 'Not Sure Yet' },
   ]);
 
@@ -57,7 +48,7 @@ const Interests = () => {
 
     if (index >= 0) {
       temp.splice(index, 1);
-      setRoles(temp);
+      setNewRoles(temp);
       setInputValue('');
       setAutocomplete({
         disabled: true,
@@ -70,7 +61,7 @@ const Interests = () => {
     for (let i = 0; i < dataSet.length; i++) {
       if (dataSet[i].name === itemName && totalSelectedItems < 7) {
         temp.push(itemName);
-        setRoles(temp);
+        setNewRoles(temp);
         flag = 1;
         break;
       }
@@ -78,7 +69,7 @@ const Interests = () => {
     }
     if (flag === 0) {
       temp.push(itemName);
-      setRoles(temp);
+      setNewRoles(temp);
       const newData = [...dataSet];
       newData.push({ name: itemName });
 
@@ -121,9 +112,11 @@ const Interests = () => {
   const checkErrorsExist = (exists) => {
     if (roles.length >= 2) {
       setValidation(true);
+      setNextpage(true);
       handleSetErrors('rolesError', '');
     } else {
       setValidation(false);
+      setNextpage(false);
       handleSetErrors('rolesError', 'Please select atleast 2 roles');
     }
   };
@@ -133,6 +126,14 @@ const Interests = () => {
     otpLoad: '',
   });
   useEffect(() => checkErrorsExist(), [roles]);
+  function nextPage() {
+    // console.log(roles);
+    dispatch(setRoles(roles));
+
+    setTimeout(() => {
+      router.push('/signup/experience');
+    }, 500);
+  }
 
   return (
     <div className="flex w-screen h-screen overflow-y-hidden bg-white">
@@ -277,16 +278,16 @@ const Interests = () => {
                 })}
               </div>
               <div className="flex justify-center">
-                <Link href="/signup/experience">
-                  <a>
-                    <button
-                      type="button"
-                      className="p-3 mt-3 bg-black text-white rounded-md text-sm font-medium disabled:bg-gray-600 disabled:cursor-not-allowed w-40"
-                    >
-                      Next
-                    </button>
-                  </a>
-                </Link>
+                <a>
+                  <button
+                    onClick={nextPage}
+                    type="button"
+                    className="p-3 mt-3 bg-black text-white rounded-md text-sm font-medium disabled:bg-gray-600 disabled:cursor-not-allowed w-40 disabled:bg-opacity-50"
+                    disabled={!next}
+                  >
+                    Next
+                  </button>
+                </a>
               </div>
             </div>
           </div>

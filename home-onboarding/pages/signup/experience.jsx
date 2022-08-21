@@ -1,37 +1,44 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/dist/client/router';
-import Link from 'next/link';
+import { useDispatch } from 'react-redux';
 import classNames from '../../utils/constants/classNames';
+import { setExperiences } from '../../store/slices/user';
 
 const Experience = () => {
-  const [experience, setExperience] = useState([]);
+  const dispatch = useDispatch();
+  const [experience, setNewExperience] = useState([]);
   const router = useRouter();
 
   const [dataSet, setDataSet] = useState([
-    { name: 'Business' },
     { name: 'Sales' },
+    { name: 'Social Work' },
     { name: 'Marketing' },
-    { name: 'Networking' },
-    { name: 'Systems' },
-    { name: 'Backend' },
-    { name: 'Security' },
-    { name: 'Frontend' },
-    { name: 'Data Science' },
-    { name: 'Testing' },
+    { name: 'Law' },
+    { name: 'Influencer Marketing' },
     { name: 'Product Management' },
-    { name: 'Finance' },
-    { name: 'Hardware' },
+    { name: 'Entrepreneurship ' },
     { name: 'UI/UX Design' },
-    { name: 'Full Stack' },
-    { name: 'Mobile' },
-    { name: 'Product Design' },
-    { name: 'Machine Learning' },
+    { name: 'Genetics' },
+    { name: 'Cybersecurity' },
+    { name: 'Data Science' },
     { name: 'Accounting' },
-    { name: 'Trading' },
+    { name: 'Finance' },
     { name: 'Art' },
-    { name: 'Legal' },
-    { name: 'Biotech' },
+    { name: 'Testing' },
+    { name: 'Food & Nutrition' },
+    { name: 'Cosmetics R & D' },
+    { name: 'Nanotechnology' },
+    { name: 'Virtual Reality' },
+    { name: 'Augmented Reality' },
+    { name: 'Blockchain' },
+    { name: 'Textile' },
+    { name: 'AgriTech' },
+    { name: 'Industrial Biotech' },
+    { name: 'Pharmaceutical' },
+    { name: 'Neuroscience' },
+    { name: 'Robotics' },
+    { name: 'Fashion' },
   ]);
 
   const [totalSelectedItems, setTotalSelectedItems] = useState(0);
@@ -46,7 +53,7 @@ const Experience = () => {
     const temp = [...experience];
     if (index >= 0) {
       temp.splice(index, 1);
-      setExperience(temp);
+      setNewExperience(temp);
       setInputValue('');
       setAutocomplete({
         disabled: true,
@@ -58,7 +65,7 @@ const Experience = () => {
     for (let i = 0; i < dataSet.length; i++) {
       if (dataSet[i].name === itemName && totalSelectedItems < 7) {
         temp.push(itemName);
-        setExperience(temp);
+        setNewExperience(temp);
         flag = 1;
         break;
       }
@@ -66,7 +73,7 @@ const Experience = () => {
     }
     if (flag === 0) {
       temp.push(itemName);
-      setExperience(temp);
+      setNewExperience(temp);
       const newData = [...dataSet];
       newData.push({ name: itemName });
 
@@ -101,6 +108,15 @@ const Experience = () => {
       });
     }
   };
+
+  function nextPage() {
+    // console.log(experience);
+    dispatch(setExperiences(experience));
+
+    setTimeout(() => {
+      router.push('/signup/skills');
+    }, 500);
+  }
 
   return (
     <div className="flex w-screen h-screen overflow-y-hidden bg-white">
@@ -193,7 +209,8 @@ const Experience = () => {
         <div className="w-full max-w-xl pt-12 h-fit my-auto">
           <div className="">
             <p className="mb-2 font-semibold text-md">
-              What areas have you had the most experience with?
+              What areas you had most experience with or looking forward to
+              explore?
             </p>
             <div className="relative">
               <input
@@ -240,16 +257,15 @@ const Experience = () => {
                 })}
               </div>
               <div className="flex justify-center">
-                <Link href="/signup/skills">
-                  <a>
-                    <button
-                      type="button"
-                      className="p-3 mt-3 bg-black text-white rounded-md text-sm font-medium disabled:bg-gray-600 disabled:cursor-not-allowed w-40"
-                    >
-                      Next
-                    </button>
-                  </a>
-                </Link>
+                <a>
+                  <button
+                    onClick={nextPage}
+                    type="button"
+                    className="p-3 mt-3 bg-black text-white rounded-md text-sm font-medium disabled:bg-gray-600 disabled:cursor-not-allowed w-40 disabled:bg-opacity-50"
+                  >
+                    Next
+                  </button>
+                </a>
               </div>
             </div>
           </div>

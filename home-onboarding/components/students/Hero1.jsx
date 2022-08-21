@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../../styles/student.module.css';
+import AboutUs from '../common/Other Components/AboutUs';
 import Footer from './Footer';
 
 function Hero1() {
@@ -10,9 +11,13 @@ function Hero1() {
         <section className="relative py-8 md:py-12">
           <div className="relative mx-auto max-w-7xl px-4 lg:px-4">
             <div className="grid rounded-2xl pt-14 lg:min-h-[540px] lg:grid-cols-2 lg:grid-rows-1 lg:items-center lg:py-0 lg:text-left bg-white text-center">
-              <div className="px-5 sm:px-10 md:px-16 md:py-10 ">
+              <section
+                data-aos="fade-right"
+                data-aos-delay="440"
+                className="px-5 sm:px-10 md:px-16 md:py-10 "
+              >
                 <h1
-                  className={`font-black font-extrabold antialiased text-[40px] tracking-[-0.01em] leading-[50px] xl:text-[48px] xl:leading-[58px] md:whitespace-pre-wrap text-[#1E1928] ${styles.fontGazpacho} `}
+                  className={`font-black antialiased text-[40px] tracking-[-0.01em] leading-[50px] xl:text-[48px] xl:leading-[58px] md:whitespace-pre-wrap text-[#1E1928] ${styles.fontGazpacho} `}
                 >
                   Get hired by companies looking for diverse talent
                 </h1>
@@ -27,7 +32,7 @@ function Hero1() {
                 >
                   Get Started
                 </button>
-              </div>
+              </section>
 
               <div className="ml-5 h-fit flex-row justify-end flex">
                 {/* <img
@@ -44,10 +49,19 @@ function Hero1() {
             </div>
           </div>
         </section>
-        <section className="relative py-8 md:py-12">
+
+        <section>
+          <AboutUs />
+        </section>
+
+        <section
+          data-aos="fade-up"
+          data-aos-delay="220"
+          className="relative py-8 md:py-12"
+        >
           <div className="relative mx-auto max-w-7xl px-4 lg:px-4">
             <h2
-              className={`font-extrabold antialiased text-[35px] tracking-[-0.015em] leading-[50px] xl:text-[48px] xl:leading-[58px] md:whitespace-pre-wrap text-[#1E1928] text-center my-8 max-w-2xl mx-auto ${styles.fontGazpacho} `}
+              className={`font-bold antialiased text-[30px] tracking-[-1px] leading-[1.3em]  md:whitespace-pre-wrap text-black text-center my-8 max-w-2xl mx-auto ${styles.fontGazpacho} `}
             >
               Changing the way students connect with companies
             </h2>
@@ -63,13 +77,13 @@ function Hero1() {
                     />
                   </div>
                   <div
-                    className={`text-[24px] leading-[36px] font-bold tracking-tight md:text-[32px] md:leading-[42px] mb-2 md:mb-4 ${styles.fontGazpacho} `}
+                    className={`text-[24px] leading-[36px] font-bold tracking-tight md:text-[26px] md:leading-[42px] mb-2 md:mb-4 ${styles.fontGazpacho} `}
                   >
                     Startup Connect
                   </div>
-                  <div className="text-lg antialiased tracking-tight font-medium text-[#1e1928cc] ">
+                  <div className="text-lg antialiased tracking-tight font-normal text-black ">
                     Connect with local innovators and entrepreneurs to discover
-                    the startups creatingadifference
+                    the startups creating a difference
                   </div>
                 </div>
               </div>
@@ -83,11 +97,11 @@ function Hero1() {
                     />
                   </div>
                   <div
-                    className={`text-[24px] leading-[36px] font-bold tracking-tight md:text-[32px] md:leading-[42px] mb-2 md:mb-4 ${styles.fontGazpacho} `}
+                    className={`text-[24px] leading-[36px] font-bold tracking-tight md:text-[26px] md:leading-[42px] mb-2 md:mb-4 ${styles.fontGazpacho} `}
                   >
                     Recruiter Connect
                   </div>
-                  <div className="text-lg antialiased tracking-tight font-medium text-[#1e1928cc] ">
+                  <div className="text-lg antialiased tracking-tight font-normal text-black ">
                     Connect with hiring managers and recruiters to find where
                     you belong
                   </div>
@@ -103,11 +117,11 @@ function Hero1() {
                     />
                   </div>
                   <div
-                    className={`text-[24px] leading-[36px] font-bold tracking-tight md:text-[32px] md:leading-[42px] mb-2 md:mb-4 ${styles.fontGazpacho}  `}
+                    className={`text-[24px] leading-[36px] font-bold tracking-tight md:text-[26px] md:leading-[42px] mb-2 md:mb-4 ${styles.fontGazpacho}  `}
                   >
                     TalentCon
                   </div>
-                  <div className="text-lg antialiased tracking-tight font-medium text-[#1e1928cc] ">
+                  <div className="text-lg antialiased tracking-tight font-normal text-black">
                     First of its kind hiring event that introduces the best
                     talents to companies by taking hiring to the next level
                   </div>
@@ -116,10 +130,14 @@ function Hero1() {
             </div>
           </div>
         </section>
-        <section className="relative py-8 md:py-12">
+        <section
+          data-aos="fade-up"
+          data-aos-delay="220"
+          className="relative py-8 md:py-12"
+        >
           <div className="relative mx-auto max-w-7xl px-4 lg:px-4">
             <h2
-              className={`font-extrabold antialiased text-[35px] tracking-[-0.015em] leading-[50px] xl:text-[48px] xl:leading-[58px] md:whitespace-pre-wrap text-[#1E1928] text-center my-8 mb-16 ${styles.fontGazpacho}  `}
+              className={`font-bold antialiased text-[30px] tracking-[-1px] leading-[1.3em] md:whitespace-pre-wrap text-black  text-center my-8 mb-16 ${styles.fontGazpacho}  `}
             >
               Why Hirable?
             </h2>
@@ -130,12 +148,12 @@ function Hero1() {
                 </div>
                 <div className="flex flex-1 flex-col self-start">
                   <h3
-                    className={`text-[24px] leading-[34px] font-bold tracking-[-0.015em] text-[#1E1928] mb-2 ${styles.fontGazpacho}  `}
+                    className={`text-[24px] leading-[34px] font-bold tracking-[-0.015em] text-black  mb-2 ${styles.fontGazpacho}  `}
                   >
                     Leadership as Experience
                   </h3>
-                  <p className="text-[16px] font-medium leading-[24px] md:leading-[30px] md:text-[18px] tracking-[-.011em] antialiased text-[#1e1928cc]">
-                    Students&apos;volunteering activities have been of interest
+                  <p className="text-[16px] font-normal md:leading-[30px] md:text-[18px] tracking-[-.015em] antialiased leading-[1.3rem] text-black ">
+                    Student&apos;s volunteering activities have been of interest
                     to academics,but the impact of these activities on learning
                     and employability has been neglected. Through our platform
                     students can present that category of experience ina number
@@ -149,11 +167,11 @@ function Hero1() {
                 </div>
                 <div className="flex flex-1 flex-col self-start">
                   <h3
-                    className={`text-[24px] leading-[34px] font-bold tracking-[-0.015em] text-[#1E1928] mb-2 ${styles.fontGazpacho} `}
+                    className={`text-[24px] leading-[34px] font-bold tracking-[-0.015em] text-black  mb-2 ${styles.fontGazpacho} `}
                   >
                     Companies apply to you
                   </h3>
-                  <p className="text-[16px] leading-[24px] font-medium md:leading-[30px] md:text-[18px] tracking-[-.011em] antialiased text-[#1e1928cc]">
+                  <p className="text-[16px] font-normal md:leading-[30px] md:text-[18px] tracking-[-.015em] antialiased leading-[1.3rem] text-black ">
                     Gone are days when students apply to tens of companies and
                     sit for rounds of interviews giving assessments.On
                     Hirable,you don&apos;t need to apply to companies because
@@ -167,11 +185,11 @@ function Hero1() {
                 </div>
                 <div className="flex flex-1 flex-col self-start">
                   <h3
-                    className={`text-[24px] leading-[34px] font-bold tracking-[-0.015em] text-[#1E1928] mb-2 ${styles.fontGazpacho}  `}
+                    className={`text-[24px] leading-[34px] font-bold tracking-[-0.015em] text-black  mb-2 ${styles.fontGazpacho}  `}
                   >
                     Experience based hiring
                   </h3>
-                  <p className="text-[16px] leading-[24px] font-medium md:leading-[30px] md:text-[18px] tracking-[-.011em] antialiased text-[#1e1928cc]">
+                  <p className="text-[16px] font-normal md:leading-[30px] md:text-[18px] tracking-[-.015em] antialiased leading-[1.3rem] text-black ">
                     On Hirable,you don&apos;t need to give rounds of interviews
                     and assessments to get selected for an internship orafull
                     time role.Instead,we simulate your experience for the role
@@ -187,11 +205,11 @@ function Hero1() {
                 </div>
                 <div className="flex flex-1 flex-col self-start">
                   <h3
-                    className={`text-[24px] leading-[34px] font-bold tracking-[-0.015em] text-[#1E1928] mb-2 ${styles.fontGazpacho} `}
+                    className={`text-[24px] leading-[34px] font-bold tracking-[-0.015em] text-black  mb-2 ${styles.fontGazpacho} `}
                   >
                     Right to opportunity
                   </h3>
-                  <p className="text-[16px] leading-[24px] font-medium md:leading-[30px] md:text-[18px] tracking-[-.011em] antialiased text-[#1e1928cc]">
+                  <p className="text-[16px] font-normal md:leading-[30px] md:text-[18px] tracking-[-.015em] antialiased leading-[1.3rem] text-black ">
                     Education should not only give you knowledge but also an
                     experience and an opportunity to work with companies while
                     you are in college itself.
@@ -202,10 +220,14 @@ function Hero1() {
           </div>
         </section>
 
-        <section className="relative py-8 md:py-12">
+        <section
+          data-aos="fade-up"
+          data-aos-delay="220"
+          className="relative mt-16 py-8 md:py-12"
+        >
           <div className="relative mx-auto max-w-7xl px-4 lg:px-4">
             <h2
-              className={`font-extrabold antialiased text-[40px] tracking-wider leading-[50px] xl:text-[48px] xl:leading-[58px] md:whitespace-pre-wrap text-[#1E1928] text-center my-8 mb-16 max-w-2xl mx-auto ${styles.fontGazpacho}  `}
+              className={`font-bold antialiased text-[30px] tracking-[-1px] leading-[1.3em] md:whitespace-pre-wrap text-black  text-center my-8 mb-16 max-w-2xl mx-auto ${styles.fontGazpacho}  `}
             >
               Good business outcomes, great human outcomes
             </h2>
@@ -215,16 +237,16 @@ function Hero1() {
                   <div
                     className={`text-[64px] leading-[75px] md:text-[80px] md:leading-[90px] lg:text-e1 text-[#E7634c] font-bold ${styles.fontGazpacho}`}
                   >
-                    70%
+                    $300k
                   </div>
                   <div
                     className={`text-[20px] leading-[34px] font-bold ${styles.fontGazpacho}`}
                   >
-                    better spirits
+                    CTC
                   </div>
-                  <div className="mt-4 text-[#1e1928cc] ">
-                    The bereaved families we support consistently report
-                    improved outlook and mood.
+                  <div className="mt-4 text-black text-[1.125rem] tracking-[-0.015em] leading-[1.875rem] ">
+                    is the highest CTC being offered by the companies to
+                    students on Hirable
                   </div>
                 </div>
               </div>
@@ -233,16 +255,16 @@ function Hero1() {
                   <div
                     className={`text-[64px] leading-[75px] md:text-[80px] md:leading-[90px] lg:text-e1 text-[#E7634c] font-bold ${styles.fontGazpacho}`}
                   >
-                    75%
+                    250+
                   </div>
                   <div
                     className={`text-[20px] leading-[34px] font-bold ${styles.fontGazpacho}`}
                   >
-                    time back
+                    international opportunities
                   </div>
-                  <div className="mt-4 text-[#1e1928cc] ">
-                    Empathy takes tedious tasks off the family’s plate and saves
-                    them dozens of hours every month.
+                  <div className="mt-4 text-black text-[1.125rem] tracking-[-0.015em] leading-[1.875rem] ">
+                    Including full time roles, global residency programs,
+                    graduate rotational programs, and more...
                   </div>
                 </div>
               </div>
@@ -251,23 +273,23 @@ function Hero1() {
                   <div
                     className={`text-[64px] leading-[75px] md:text-[80px] md:leading-[90px] lg:text-e1 text-[#E7634c] font-bold ${styles.fontGazpacho}`}
                   >
-                    4.5/5⭑
+                    5000+
                   </div>
                   <div
                     className={`text-[20px] leading-[34px] font-bold ${styles.fontGazpacho}`}
                   >
-                    average rating
+                    openings
                   </div>
-                  <div className="mt-4 text-[#1e1928cc] ">
-                    Our users report that they feel heard, understood, and
-                    supported.
+                  <div className="mt-4 text-black text-[1.125rem] tracking-[-0.015em] leading-[1.875rem] ">
+                    across experience enhancement programs to help you get
+                    experience and get hired
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
-
+        {/* 
         <section className="relative py-8 md:py-12">
           <div className="relative mx-auto max-w-7xl px-4 lg:px-4">
             <div className="no-scrollbar relative flex -mx-4 w-screen lg:mx-0 lg:w-auto">
@@ -337,9 +359,13 @@ function Hero1() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
-        <section className="relative mx-auto flex max-w-7xl pb-10">
+        <section
+          data-aos="fade-up"
+          data-aos-delay="220"
+          className="relative mx-auto mt-16 flex max-w-7xl pb-10"
+        >
           <div className="relative mx-auto flex w-full bg-[#1e1928] flex-col self-center rounded-lg  text-white px-6 py-16 sm:px-8 md:py-20 md:mx-4">
             <div className="text-center flex flex-col mx-auto max-w-2xl">
               <div className="flex flex-col items-center justify-center gap-y-4 text-center">

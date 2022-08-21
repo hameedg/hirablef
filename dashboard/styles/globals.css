@@ -11,6 +11,16 @@
   scrollbar-width: none;
   /* for Firefox */
 }
+@font-face {
+  font-family: 'Gazpacho';
+  font-weight: 700;
+  font-style: normal;
+  src: url('../fonts/Gazpacho/Gazpacho\ Bold.ttf');
+}
+
+.fontGazpacho {
+  font-family: 'Gazpacho';
+}
 
 .navbarScrollBar::-webkit-scrollbar {
   display: none;

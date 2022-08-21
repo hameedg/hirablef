@@ -1,18 +1,25 @@
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/dist/client/router';
-
+import { useDispatch } from 'react-redux';
 import PhoneInput from 'react-phone-input-2';
 import InputMessage from '../../components/common/InputMessage';
 import classNames from '../../utils/constants/classNames';
 import Input from '../../components/common/Input';
 import InputError from '../../components/common/InputError';
 import 'react-phone-input-2/lib/style.css';
+import {
+  setUsername,
+  setEmail2,
+  setMobile,
+  setMobile2,
+  setAboutMe,
+} from '../../store/slices/user';
 
 const PersonalInfo = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
+  const [next, setNextpage] = useState(false);
 
-  const [steps, setSteps] = useState(4);
   const [data, setData] = useState({
     username: '',
     alternateEmail: '',
@@ -22,30 +29,13 @@ const PersonalInfo = () => {
   });
   const [errors, setErrors] = useState({
     usernameError: '',
-    emailError: '',
-    passwordError: '',
-    collegeError: '',
-    graduationYearError: '',
-    degreeError: '',
-    majorError: '',
-    validated: false,
-    otpError: '',
-    usernameAvail: false,
     altEmailError: '',
-    rolesError: 'Please select atleast 2 roles',
-    emailLoad: '',
+    usernameAvail: false,
     usernameLoad: '',
   });
   const { alternateEmail, mobileNo, altMobileNo, about, username } = data;
 
-  const {
-    usernameAvail,
-    altEmailError,
-    usernameError,
-    majorError,
-
-    usernameLoad,
-  } = errors;
+  const { usernameAvail, usernameError, usernameLoad } = errors;
 
   const handleSetErrors = (field, value) =>
     setErrors((f) => ({ ...f, [field]: value }));
@@ -57,12 +47,6 @@ const PersonalInfo = () => {
       fNameError: '',
       usernameError: '',
       emailError: '',
-      passwordError: '',
-      collegeError: '',
-      graduationYearError: '',
-      degreeError: '',
-      majorError: '',
-      otpError: '',
     }));
   // //////////////////ERRORS //////////////////
   const checkUsername = (value, test) => {
@@ -103,18 +87,12 @@ const PersonalInfo = () => {
   // /////////////////////////////////////////////
 
   const handleErrors = (field, value) => {
-    switch (steps) {
-      case 4:
-        switch (field) {
-          case 'username':
-            checkUsername(value);
-            break;
-          case 'alternateEmail':
-            checkAltEmail(value);
-            break;
-          default:
-            break;
-        }
+    switch (field) {
+      case 'username':
+        checkUsername(value);
+        break;
+      case 'alternateEmail':
+        checkAltEmail(value);
         break;
       default:
         break;
@@ -122,21 +100,16 @@ const PersonalInfo = () => {
   };
 
   const checkErrorsExist = (exists) => {
-    switch (steps) {
-      case 4:
-        if (
-          checkUsername(username, true) &&
-          checkAltEmail(alternateEmail, true) &&
-          (exists || usernameAvail)
-        ) {
-          setValidation(true);
-        } else {
-          setValidation(false);
-        }
-        break;
-
-      default:
-        break;
+    if (
+      checkUsername(username, true) &&
+      checkAltEmail(alternateEmail, true) &&
+      (exists || usernameAvail)
+    ) {
+      setNextpage(true);
+      setValidation(true);
+    } else {
+      setNextpage(false);
+      setValidation(false);
     }
   };
 
@@ -144,7 +117,7 @@ const PersonalInfo = () => {
     setData((f) => ({ ...f, [e.target.name]: e.target.value }));
     setTimeout(() => handleErrors(e.target.name, e.target.value), 100);
   };
-  useEffect(() => checkErrorsExist(), [data, steps]);
+  useEffect(() => checkErrorsExist(), []);
   useEffect(() => {
     handleSetErrors('usernameAvail', false);
     handleSetErrors('validated', false);
@@ -157,21 +130,26 @@ const PersonalInfo = () => {
     if (username.length > 0 && checkUsername(username, true)) {
       timeoutId = setTimeout(
         () => {
-          import('../../utils/apis/auth').then(({ usernameAvailable }) => {
-            usernameAvailable(username)
-              .then(() => {
-                handleSetErrors('usernameLoad', 'Username available');
-                handleSetErrors('usernameError', '');
-                handleSetErrors('usernameAvail', true);
-                checkErrorsExist(true);
-              })
-              .catch(() => {
-                handleSetErrors('usernameLoad', '');
-                handleSetErrors('usernameError', 'Username is already taken');
-                handleSetErrors('validated', false);
-                handleSetErrors('usernameAvail', false);
-              });
-          });
+          handleSetErrors('usernameLoad', 'Username available');
+          handleSetErrors('usernameError', '');
+          handleSetErrors('usernameAvail', true);
+          checkErrorsExist(true);
+
+          // import('../../utils/apis/auth').then(({ usernameAvailable }) => {
+          //   usernameAvailable(username)
+          //     .then(() => {
+          //       handleSetErrors('usernameLoad', 'Username available');
+          //       handleSetErrors('usernameError', '');
+          //       handleSetErrors('usernameAvail', true);
+          //       checkErrorsExist(true);
+          //     })
+          //     .catch(() => {
+          //       handleSetErrors('usernameLoad', '');
+          //       handleSetErrors('usernameError', 'Username is already taken');
+          //       handleSetErrors('validated', false);
+          //       handleSetErrors('usernameAvail', false);
+          //     });
+          // });
         },
 
         2000
@@ -179,6 +157,19 @@ const PersonalInfo = () => {
     }
     return () => clearTimeout(timeoutId);
   }, [username]);
+
+  function nextPage() {
+    dispatch(setUsername(username));
+    dispatch(setEmail2(alternateEmail));
+    dispatch(setMobile(mobileNo));
+    dispatch(setMobile2(altMobileNo));
+    dispatch(setAboutMe(about));
+
+    setTimeout(() => {
+      // window.location.replace('');
+      router.push('/signup/interests');
+    }, 500);
+  }
 
   return (
     <div className="flex w-screen h-screen overflow-y-hidden bg-white">
@@ -294,7 +285,7 @@ const PersonalInfo = () => {
               placeholder="Enter Alternate Email"
               type="text"
             />
-            {altEmailError && <InputError error={altEmailError} />}
+            {/* {altEmailError && <InputError error={altEmailError} />} */}
             <div className="flex">
               <div className="flex-1">
                 <label
@@ -344,19 +335,18 @@ const PersonalInfo = () => {
                 onChange={handleChange}
               />
             </div>
-            {majorError && <InputError error={majorError} />}
 
             <div className="flex justify-center">
-              <Link href="/signup/interests">
-                <a>
-                  <button
-                    type="button"
-                    className="p-3 mt-3 bg-black text-white rounded-md text-sm font-medium disabled:bg-gray-600 disabled:cursor-not-allowed w-40"
-                  >
-                    Next
-                  </button>
-                </a>
-              </Link>
+              <a>
+                <button
+                  onClick={nextPage}
+                  type="button"
+                  className="p-3 mt-3 bg-black text-white rounded-md text-sm font-medium disabled:bg-gray-600 disabled:cursor-not-allowed w-40 disabled:bg-opacity-50"
+                  disabled={!next}
+                >
+                  Next
+                </button>
+              </a>
             </div>
           </div>
         </div>

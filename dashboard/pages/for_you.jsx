@@ -1,236 +1,172 @@
 import React, { useState } from 'react';
 import Sidebar from '../components/common/Sidebar';
-import LatestElement from '../components/for-you/LatestElement';
+import Container from '../components/common/Container';
+import NewComapanyModal from '../modals/NewComapanyModal';
 
 const ForYou = () => {
-  const [latest, setLatest] = useState([
-    {
-      imageName: 'career-accelerator.png',
-      title: 'Aka Smallditch',
-      content:
-        'I love sharing what I have learned , and passing the experiences.',
-    },
-    {
-      imageName: 'career-accelerator.png',
-      title: 'Aka Smallditch',
-      content:
-        'I love sharing what I have learned , and passing the experiences.',
-    },
-    {
-      imageName: 'career-accelerator.png',
-      title: 'Aka Smallditch',
-      content:
-        'I love sharing what I have learned , and passing the experiences.',
-    },
-    {
-      imageName: 'career-accelerator.png',
-      title: 'Aka Smallditch',
-      content:
-        'I love sharing what I have learned , and passing the experiences.',
-    },
-  ]);
-  const [writers, setWriters] = useState([
-    {
-      imageName: 'career-accelerator.png',
-      name: 'James Parker',
-      title: 'Critic',
-    },
-    {
-      imageName: 'career-accelerator.png',
-      name: 'James Parker',
-      title: 'Critic',
-    },
-    {
-      imageName: 'career-accelerator.png',
-      name: 'James Parker',
-      title: 'Critic',
-    },
-    {
-      imageName: 'career-accelerator.png',
-      name: 'James Parker',
-      title: 'Critic',
-    },
-  ]);
+  const [modal, setModal] = useState(false);
+  const handleOpenModal = () => {
+    setModal(true);
+  };
 
-  const [open, setOpen] = useState(false);
+  const [companies] = useState([
+    {
+      id: '01',
+      open: false,
+      companyName: 'Convosight',
+      logo: 'https://global-uploads.webflow.com/62014002185c7b256316ef63/6267f1a4ac9dfdd13f1fd9d3_vC8FBy6C_400x400.jpeg',
+      tagline: 'Creating conversations between brands and communities',
+      website: 'https://www.convosight.com/',
+      employees: '101-200',
+      funding: '$13M',
+      tags: ['SaaS', '•', 'Community Management'],
+      description:
+        'Convosight is on a mission to enable community creators generate sustainable income from their communities.Convosight is the first community management platform that uses the power of machine learning to help brands tap into closed communities, for insights and marketing. It enables community creators to become community entrepreneurs, by helping them earn a sustainable income through brand partnerships. Over 50,000 communities across 75 countries are managing 480 million members through Convosight.',
+      openings: '36',
+    },
+    {
+      id: '02',
+      open: false,
+      companyName: 'FINN',
+      logo: 'https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/bwriv1zlw0kwxkylqmzs',
+      tagline: 'We make mobility fun and sustainable',
+      website: 'https://www.finn.auto/',
+      employees: '201-500',
+      funding: '$908.3M',
+      tags: ['Car subscription'],
+      description:
+        'FINN makes mobility fun and sustainable. We help everyone who loves driving their own car but refuses the struggle, commitment and intransparent costs associated with car ownership. We achieve this by offering all-inclusive, immediately available, monthly car-subscriptions. Best thing, yet: While you drive we plant trees as every journey is CO2 compensated.With a flexible car subscription, we bring a true e-commerce experience to car ownership and offset all CO2 emissions along the way.',
+      openings: '92',
+    },
+  ]);
   return (
     <>
-      <div className="fy-sidebar">
-        <Sidebar />
-      </div>
-      <div
-        onClick={() => {
-          console.log(!open);
-          setOpen(!open);
-        }}
-        className="z-100"
-      >
-        <svg
-          data-name="Layer 3"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 128 128"
-          className="h-[00px] m-[10px] mb-[0px] fy-svg cursor-pointer"
-        >
-          <path d="M97.092 36.078H30.908a2.111 2.111 0 0 0 0 4.222h66.184a2.111 2.111 0 0 0 0-4.222zM97.092 61.889H30.908a2.111 2.111 0 0 0 0 4.222h66.184a2.111 2.111 0 0 0 0-4.222zM97.092 87.7H30.908a2.111 2.111 0 0 0 0 4.222h66.184a2.111 2.111 0 0 0 0-4.222z" />
-        </svg>
-      </div>
-      <div className={`${open ? '' : 'translate-x-[0px] pointer-events-none'}`}>
-        <Sidebar />
-      </div>
-      {/* <Sidebar className="fy-openButton" /> */}
-      {/* <main className="w-main float-right">
-      <Container>
-        <div className="p-3.8 border border-border rounded-sm">
-          <p className="text-xsm uppercase font-medium mb-3.8 text-light">
-            NEW JOBS ON CANVAS ‌
-          </p>
-          <div className="grid grid-cols-2 gap-3.8">
-            <Card imageName="career-accelerator.png" />
-            <Card imageName="dream-job.png" />
-            <Card imageName="women-in-tech.png" />
-          </div>
-        </div>
-      </Container>
-    </main> */}
-      <main className="w-main lg:float-right h-[100vh] ">
-        <div className="bg-white h-[8.75rem] flex flex-col items-center justify-center">
-          <h1 className="text-2xl font-extrabold my-4">For You</h1>
-        </div>
-        <div className="container rounded-md max-w-container mt-5 p-[5px] mx-auto bg-white mb-8 w-[998px]  h-[90%]  max-h-[530px]">
-          <div className="width-[100%]  h-[60%] flex justify-between pb-[20px]">
-            <div className=" w-[30%] flex flex-col justify-between p-[10px] border-[1px] border-black rounded-[1rem]">
-              <h1 className="font-semibold">Experience Improvement Program</h1>
-              <img
-                src="/images/women-in-tech.png"
-                className="h-[8em] object-cover rounded-[3rem]"
-              />
-              <div className="flex p-[10px] font-medium whitespace-normal !text-sm break-words antialiased text-black">
-                No company wants your certificates, but every company wants your
-                experience. It&apos;s time to work with companies and gain
-                experience
-              </div>
-            </div>
-
-            <div className=" w-[30%] -[10px] pl-[10px]">
-              <div className="flex font-medium whitespace-normal !text-sm break-words antialiased text-black">
-                Let&apos;s start from the belief that you are qualified to get a
-                great job. Many aspiring students couldn&apos;t get their dream
-                job because they don&apos;t have experience, guidance and
-                they&apos;re not prepared. Don&apos;t let that happen to you.
-              </div>
-            </div>
-
-            <div className=" w-[35%] px-[10px] pr-[15px]">
-              <img
-                src="/images/women-in-tech.png"
-                className="h-[100%] w-full object-cover rounded-3xl overflow-hidden "
-              />
-            </div>
-
-            {/* <div className=" w-[18%]">
-              <h1 className="text-[1.5rem] mb-[0.2rem] ml-[1%]">WRITERS</h1>
-              <div className="flex flex-col justify-between">
-                {writers.map((w) => (
-                  <WriterElement
-                    imageName={w.imageName}
-                    name={w.name}
-                    title={w.title}
-                  />
-                ))}
-              </div>
-            </div> */}
-          </div>
-
-          <div className="width-[100%]  h-[40%] flex justify-between">
-            <div className="w-[25%] relative bg-black text-white rounded-[1rem] ">
-              <div className="text-[1.3rem] w-[80%] absolute rotate-[-90deg] h-[100%] ml-[25px]">
-                <div className="m-auto">
-                  Andy Warhol <span className="font-bold">to the power</span>
+      <Sidebar />
+      {modal && (
+        <NewComapanyModal
+          handleClose={() => setModal(false)}
+          name={companies[0].companyName}
+          logo={companies[0].logo}
+          tagline={companies[0].tagline}
+          employees={companies[0].employees}
+          funding={companies[0].funding}
+          tags={companies[0].tags}
+          openings={companies[0].openings}
+          description={companies[0].description}
+          website={companies[0].website}
+        />
+      )}
+      <main className="w-main float-right">
+        <Container>
+          <div className="p-3.8 border border-border rounded-sm">
+            <p className="text-xsm uppercase font-medium mb-3.8 text-light">
+              For You
+            </p>
+            <div className="grid grid-cols-3 gap-3.8">
+              <butten
+                type="butten"
+                onClick={handleOpenModal}
+                className=" w-[310px] h-[310px] border justify-center bg-cover cursor-pointer rounded-md hover:shadow-lg duration-150 ease-in"
+                style={{
+                  backgroundImage: `url('/images/foryou1.svg')`,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundPosition: 'center',
+                }}
+              >
+                <div className="max-w-[250px] flex flex-col justify-between max-h-[200px] mb-6 mt-24 mx-auto text-center">
+                  <h1 className="font-bold text-lg pt-2 pb-4 text-black fontGazpacho">
+                    Experience Improvement <br />
+                    Program
+                  </h1>
+                  <div className="flex font-normal whitespace-normal tracking-tight px-2 !text-sm break-words pb-6 antialiased text-gray-800">
+                    No company wants your certificates, but every company wants
+                    your experience. It&apos;s time to work with companies and
+                    gain experience
+                  </div>
                 </div>
-              </div>
-              <div className="flex flex-col justify-between  w-[50%] h-[80%] mt-[20px] mr-[12px] float-right">
-                <img
-                  src="/images/dream-job.png"
-                  className="h-[6rem] w-[6rem] object-cover mx-auto"
-                />
-                <div className="float-right text-right text-[12px] mr-[10px]">
-                  I Artsper
+              </butten>
+
+              <butten
+                type="butten"
+                onClick={handleOpenModal}
+                className=" w-[310px] h-[310px] border justify-center bg-cover cursor-pointer rounded-md hover:shadow-lg duration-150 ease-in"
+                style={{
+                  backgroundImage: `url('/images/foryou2.svg')`,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundPosition: 'center',
+                }}
+              >
+                <div className="max-w-[275px] flex flex-col justify-between max-h-[200px] mt-28 text-start pl-6">
+                  <h1 className="font-bold text-3xl pb-4 fontGazpacho">
+                    My First <br />
+                    internship
+                  </h1>
+                  <div className="flex font-normal whitespace-normal tracking-tight !text-sm break-words antialiased text-gray-800">
+                    Get your first internship with Hirable. Join the Internship
+                    Challenge today!
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div className=" w-[25%] flex flex-col justify-between p-[3px] border-[1px] border-black rounded-lg ml-[10px]">
-              <div className="flex justify-between p-[5px]">
-                <p className="text-[15px] pr-[10px] font-semibold">
-                  Art exhibitions from around the world
-                </p>
+              </butten>
+
+              <butten
+                type="butten"
+                onClick={handleOpenModal}
+                className="w-[310px] h-[310px] border justify-center bg-cover cursor-pointer rounded-md hover:shadow-lg duration-150 ease-in"
+              >
                 <img
-                  src="/images/dream-job.png"
-                  className="h-[5rem] w-[3.5rem] object-cover"
+                  src="/images/foryou3.png"
+                  className="h-[100%] w-full object-cover rounded-md overflow-hidden "
                 />
+              </butten>
+
+              <div
+                className="w-[310px] h-[310px] border justify-center cursor-pointer rounded-md hover:shadow-lg duration-150 ease-in bg-cover"
+                style={{
+                  backgroundImage: `url('/images/foryou4.svg')`,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundPosition: 'center',
+                }}
+              >
+                <div className="max-w-[250px] flex flex-col justify-between max-h-[200px] mt-16 text-start ml-10">
+                  <h1 className="font-bold text-lg pb-4 fontGazpacho">
+                    Minors/
+                    <br />
+                    Dual Degree Programs
+                  </h1>
+                  <div className="flex flex-col max-w-[200px] font-normal whitespace-normal tracking-tight !text-sm break-words antialiased text-gray-800">
+                    A minor gives you an edge...
+                    <span className="w-full h-[1px] pb-4" />
+                    Explore a different academic interest that supplements your
+                    major
+                  </div>
+                </div>
               </div>
               <div
-                className="text-[12px] p-[5px] pr-[10px]"
-                style={{ lineHeight: '20px' }}
+                className="w-[637px] h-[310px] border justify-center col-span-2 cursor-pointer rounded-md hover:shadow-lg duration-150 ease-in bg-cover"
+                style={{
+                  backgroundImage: `url('/images/foryou5.svg')`,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundPosition: 'center',
+                }}
               >
-                Even if I had the means , I would still shoot on the iphone
-                .Malick Kobe is one the rising talents.
-              </div>
-              <div className="font-semibold text-[15px] p-[3px]">
-                <div className="float-right cursor-pointer mb-[4px] text-[15px] text-base leading-5">
-                  Shop Now
-                </div>
-              </div>
-            </div>
-            <div className=" w-[50%] flex border-[1px] border-black rounded-lg ml-[10px]">
-              <div className="w-[50%] border-r-[1px] border-black">
-                <img
-                  src="/images/career-accelerator.png"
-                  className="h-[100%] object-cover rounded-tr-[8rem] rounded-br-[8rem] border-r-[0px] border-black overflow-hidden"
-                />
-              </div>
-              <div className="w-[50%]  flex flex-col justify-between p-[10px]">
-                <div className="w-[80%] font-semibold">
-                  From pearly whites to sparkly delights
-                </div>
-                <div
-                  className="text-[12px] w-[80%] "
-                  style={{ lineHeight: '20px' }}
-                >
-                  Similarly , for the aqurarium , a group of what looks like
-                  school children and accompanying adults are seen marvelling .
-                </div>
-                <div className="flex justify-between items-end">
-                  <div className="font-semibold text-[15px] cursor-pointer text-base leading-5">
-                    Shop Now
-                  </div>
-                  <div className="flex">
-                    <div className=" px-[10px] py-[6px] bg-black text-white border-[1px] border-black mr-[10px] rounded-[0.5rem] cursor-pointer">
-                      <svg
-                        data-name="1-Arrow Up"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 25 25"
-                        fill="white"
-                        className="h-[20px]"
-                      >
-                        <path d="M24 12.001H2.914l5.294-5.295-.707-.707L1 12.501l6.5 6.5.707-.707-5.293-5.293H24v-1z" />
-                      </svg>
-                    </div>
-                    <div className=" px-[10px] py-[6px] border-[1px] border-black mr-[10px] rounded-[0.5rem] cursor-pointer">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 25 25"
-                        fill="black"
-                        className="h-[20px]"
-                      >
-                        <path d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z" />
-                      </svg>
-                    </div>
+                <div className="max-w-[250px] flex flex-col justify-between max-h-[200px] mt-10 text-start ml-10">
+                  <h1 className="font-bold text-xl pb-4 fontGazpacho">
+                    Career Acceleratior
+                  </h1>
+                  <div className="flex flex-col font-normal whitespace-normal tracking-tight !text-sm break-words antialiased text-gray-800">
+                    Of all aspects of social misery nothing is so hartbreaking
+                    as unemployment
+                    <span className="w-full h-[1px] pb-4" />
+                    Don’t wait for the opportunity. Create it! Give your job
+                    search what it lacks. Get hired with Hirable Career
+                    Acceleration
                   </div>
                 </div>
+                <div />
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </main>
     </>
   );

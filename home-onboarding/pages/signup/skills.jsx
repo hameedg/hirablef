@@ -1,26 +1,50 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/dist/client/router';
+import { useDispatch } from 'react-redux';
 import classNames from '../../utils/constants/classNames';
+import { setSkills } from '../../store/slices/user';
 
 const Skills = () => {
-  const [skills, setSkills] = useState([]);
+  const dispatch = useDispatch();
+  const [skills, setNewSkills] = useState([]);
   const router = useRouter();
 
   const [dataSet, setDataSet] = useState([
-    { name: 'Angular js', selected: false },
-    { name: 'Apache spark', selected: false },
-    { name: 'C', selected: false },
-    { name: 'C++', selected: false },
-    { name: 'Kotlin', selected: false },
-    { name: 'Java', selected: false },
-    { name: 'Python', selected: false },
-    { name: 'Node js', selected: false },
-    { name: 'React js', selected: false },
-    { name: 'Linux', selected: false },
-    { name: 'Github', selected: false },
-    { name: 'SQL', selected: false },
     { name: 'MongoDB', selected: false },
+    { name: 'Creative Writing', selected: false },
+    { name: 'Blogging', selected: false },
+    { name: 'Content Marketing', selected: false },
+    { name: 'Public Speaking', selected: false },
+    { name: 'Painting', selected: false },
+    { name: 'Sales', selected: false },
+    { name: 'Teaching', selected: false },
+    { name: 'Acting', selected: false },
+    { name: 'Interviewing', selected: false },
+    { name: 'Investigative Reporting', selected: false },
+    { name: 'Social Media Marketing', selected: false },
+    { name: 'Video Making', selected: false },
+    { name: 'Farm Operations', selected: false },
+    { name: 'Crops Management', selected: false },
+    { name: 'AutoCAD', selected: false },
+    { name: 'Autodesk Revit', selected: false },
+    { name: 'Project Management', selected: false },
+    { name: 'Accounting', selected: false },
+    { name: 'Bioinformatics', selected: false },
+    { name: 'Biology', selected: false },
+    { name: 'C', selected: false },
+    { name: 'C#', selected: false },
+    { name: 'Calligraphy', selected: false },
+    { name: 'Data Analytics', selected: false },
+    { name: 'Data Science', selected: false },
+    { name: 'Economics', selected: false },
+    { name: 'Embroidery making', selected: false },
+    { name: 'Fashion Designing', selected: false },
+    { name: 'Fashion Styling', selected: false },
+    { name: 'Financial Modeling', selected: false },
+    { name: 'History', selected: false },
+    { name: 'Immunological Techniques', selected: false },
+    { name: 'Internet of Things(IoT)', selected: false },
   ]);
 
   const [totalSelectedItems, setTotalSelectedItems] = useState(0);
@@ -35,7 +59,7 @@ const Skills = () => {
     const temp = [...skills];
     if (index >= 0) {
       temp.splice(index, 1);
-      setSkills(temp);
+      setNewSkills(temp);
       setInputValue('');
       setAutocomplete({
         disabled: true,
@@ -47,7 +71,7 @@ const Skills = () => {
     for (let i = 0; i < dataSet.length; i++) {
       if (dataSet[i].name === itemName && totalSelectedItems < 7) {
         temp.push(itemName);
-        setSkills(temp);
+        setNewSkills(temp);
         flag = 1;
         break;
       }
@@ -55,7 +79,7 @@ const Skills = () => {
     }
     if (flag === 0) {
       temp.push(itemName);
-      setSkills(temp);
+      setNewSkills(temp);
       const newData = [...dataSet];
       newData.push({ name: itemName });
 
@@ -92,27 +116,12 @@ const Skills = () => {
   };
 
   const handleSubmit = () => {
-    // console.log(
-    //   name,
-    //   email,
-    //   password,
-    //   currentTimezone,
-    //   countrySelected,
-    //   college,
-    //   graduationYear,
-    //   degree,
-    //   major,
-    //   username,
-    //   alternateEmail,
-    //   mobileNo,
-    //   altMobileNo,
-    //   about,
-    //   roles,
-    //   experience,
-    //   skills
-    // );
+    // console.log(skills);
+    dispatch(setSkills(skills));
 
-    router.push('/signup/connect');
+    setTimeout(() => {
+      router.push('/signup/connect');
+    }, 500);
   };
 
   return (
@@ -258,7 +267,7 @@ const Skills = () => {
                   className="p-3 mt-3 bg-signup-blue text-white rounded-md text-sm font-medium w-40"
                   onClick={handleSubmit}
                 >
-                  Register
+                  Next
                 </button>
               </div>
             </div>

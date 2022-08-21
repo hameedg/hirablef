@@ -36,7 +36,7 @@ class NextDocument extends Document {
           />
           <meta name="theme-color" content="#ffffff" />
         </Head>
-        <body className="w-full">
+        <body className="w-full scrollbar-hide">
           <Main />
           <NextScript />
         </body>
