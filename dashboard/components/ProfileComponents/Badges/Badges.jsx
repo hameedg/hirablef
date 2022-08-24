@@ -43,6 +43,17 @@ const Badges = () => {
             you’ve TA’d.
           </p>
           <div className="flex">
+            <VolunteerWorkBadge
+              data={badges.volunteerWork}
+              badges={badges}
+              setBadges={setBadges}
+            />
+            <AchievementBadge
+              data={badges.achievement}
+              badges={badges}
+              setBadges={setBadges}
+            />
+
             {badges.volunteerWork.length > 0 && (
               <VolunteerWorkBadge
                 data={badges.volunteerWork}

@@ -5,8 +5,8 @@ const VolunteerIcon = () => (
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
     viewBox="0 0 70.59 79.89"
-    height={25}
-    width={25}
+    height={40}
+    width={40}
   >
     <defs>
       <clipPath id="clip-path" transform="translate(1.12 0.49)">

@@ -37,7 +37,7 @@ const CompanyCard = ({
                 Jobs & Assignments:
               </div>
             </div>
-            <div className="text-[24px] font-bold text-gray-900 leading-4 mt-2">
+            <div className="text-[24px] font-medium text-gray-900 leading-4 mt-2">
               {openings}
             </div>
             <div className="text-xs font-medium text-gray-700 leading-4 mt-2">
@@ -47,7 +47,7 @@ const CompanyCard = ({
         </div>
         <h4 className="font-medium text-base leading-snug mb-2">{name}</h4>
         <div className="flex items-center cursor-pointer mb-2 break-words">
-          <p className="leading-4 text-sm line-clamp-1">{tagline}</p>
+          <p className="leading-4 text-sm line-clamp-2 h-8">{tagline}</p>
         </div>
         <div className="flex">
           <div className="flex items-center whitespace-pre-wrap mr-2">

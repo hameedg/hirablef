@@ -41,6 +41,7 @@
     "react-phone-input-2": "^2.14.0",
     "react-redux": "^7.2.5",
     "react-router-dom": "^6.2.2",
+    "react-tooltip": "^4.2.21",
     "tailwind-scrollbar-hide": "^1.1.7",
     "universal-cookie": "^4.0.4"
   },
