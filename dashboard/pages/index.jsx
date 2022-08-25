@@ -1,13 +1,14 @@
 import Joyride from 'react-joyride';
 import ProductTour from '../components/common/ProductTour';
 import Sidebar from '../components/common/Sidebar';
-import AnalyticsCard from '../components/Dashboard/AnalyticsCard';
-import BlueCard from '../components/Dashboard/BlueCard';
 import CompanyProduct from '../components/Dashboard/CompanyProduct';
 import LinkCard from '../components/Dashboard/LinkCard';
 import Todo from '../components/Dashboard/Todo';
 import JoinWaitlist from '../components/Hiring-Challenges/JoinWaitlist';
-import JoinWaitlist2 from '../components/Hiring-Challenges/JoinWaitlist2';
+import Stats from '../components/Hiring-Challenges/Stats';
+import Section from '../components/Hiring-Challenges/Section';
+import UpcomingInterviews from '../components/Hiring-Challenges/UpcomingInterviews';
+import Analytics from '../components/Hiring-Challenges/Analytics';
 
 import Banner1 from '../components/banners/Banner1';
 import Banner2 from '../components/banners/Banner2';
@@ -92,13 +93,13 @@ const UtilityBoard = () => {
               image="/images/hiring challenge final.svg"
             />
           </div>
-          <div className=" mt-7 w-[60.313rem] rounded-2xl mx-auto cursor-default">
-            <JoinWaitlist />
-          </div>
-          <JoinWaitlist2 />
+          <JoinWaitlist />
+          <Stats />
+          <Section />
+
           {/* <div className="mx-auto mt-7 relative w-[59.375rem]"> */}
-          <div className="mx-auto mt-7 relative w-[57.375rem]">
-            <div className="bg-white rounded-2xl w-full h-[10.625rem] shadow-lg">
+          <div className="mx-auto mt-7 relative w-[60.313rem]">
+            <div className="bg-white rounded-2xl w-full h-[10.625rem] shadow">
               <h1 className="pt-0.5 mt-4 ml-7 mb-1.5 font-semibold inline-block text-[.95rem] leading-[1.375rem] text-[#033443]">
                 Projects By Companies
               </h1>
@@ -118,11 +119,9 @@ const UtilityBoard = () => {
             </div>
             <div className="mt-7 flex space-x-4">
               <Todo />
-              <div>
-                <BlueCard />
-                <AnalyticsCard />
-              </div>
+              <UpcomingInterviews />
             </div>
+            <Analytics />
             <Banner1 />
             <Banner2 />
 

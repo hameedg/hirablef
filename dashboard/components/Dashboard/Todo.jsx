@@ -63,7 +63,7 @@ function Todo() {
   );
 
   return (
-    <div className="shadow-xl rounded-xl p-4 border min-w-[28.9rem] bg-white">
+    <div className="shadow-lg rounded-xl p-4 border min-w-[28.9rem] bg-white">
       <div className="font-bold text-xl text-gray-800 pb-2">To-do List</div>
       <div className="todo-container flex flex-col  h-full">
         {tasks.map((item) =>
