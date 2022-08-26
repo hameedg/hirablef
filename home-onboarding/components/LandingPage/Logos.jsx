@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-
 import AOS from 'aos';
+import styles from '../../styles/student.module.css';
+
 import 'aos/dist/aos.css';
 
 const amazone = require('../../public/logos/amazon.svg');
@@ -96,10 +97,10 @@ function Logos() {
         data-aos-delay="220"
       >
         <h3
-          className="leading-first md:text-sec md:leading-sec font-body mb-8 font-semibold "
+          className={`leading-first tracking-[-1px] sm-mid-tablet:leading-snug ${styles.fontGazpacho} md:text-sec md:leading-sec font-body mb-8 font-semibold `}
           style={{
-            fontSize: 'calc(1.425rem + 1vw)',
-            fontWeight: '600',
+            fontSize: '30px',
+            fontWeight: '700',
           }}
         >
           They can be your future employers

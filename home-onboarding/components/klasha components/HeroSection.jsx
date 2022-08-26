@@ -6,17 +6,17 @@ const HeroSection = () => {
     <div className="max-w-[1320px] mx-auto mb-10 w-full px-4 lg:px-[50px] ">
       <div className="text-center block">
         <h1
-          className={` text-[40px] ${styles.fontGazpacho} font-medium lg:text-[48px] 2xl:text-[80px] 2xl:leading-[110%] leading-[110%] lg:leading-[130%] tracking-[-0.02em] mb-3 lg:mb-6 mx-auto max-w-[1000px] `}
+          className={` text-[40px] ${styles.fontGazpacho} font-bold lg:text-[48px] 2xl:text-[80px] 2xl:leading-[110%] leading-[110%] lg:leading-[130%] tracking-[-0.02em] mb-3 lg:mb-6 mx-auto max-w-[1000px] `}
         >
           Become a Campus Ambassador today!
         </h1>
 
         {/* Description */}
-        <p className=" max-w-full  lg:max-w-[520px] mx-auto mb-10 text-base 2xl:text-lg leading-[180%] ">
-          The Klasha Campus Ambassador Programme provides an excellent
-          opportunity for students in tertiary institutions across Africa to be
-          part of the Klasha family and join our mission to build borderless
-          payments for commerce in Africa.
+        <p className=" max-w-full text-center lg:max-w-[850px] mx-auto mb-10 text-lg tracking-[-0.015em] leading-[1.875rem] ">
+          The Hirable Campus Ambassador Programme provides an excellent
+          opportunity for students across the world to be part of the Hirable
+          family and join our mission to create an ecosystem of opportunities
+          for students.
         </p>
 
         <div className=" inline-flex lg:flex items-center justify-center">
