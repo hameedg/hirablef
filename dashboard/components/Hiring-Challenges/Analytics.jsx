@@ -2,7 +2,7 @@ import React from 'react';
 
 function Analytics() {
   return (
-    <nav className="w-[40%] h-full mt-4">
+    <nav className="w-[40%] h-full">
       <div className="bg-white p-4 border rounded-lg h-auto w-full flex flex-col justify-start">
         <div className=" flex justify-between">
           <h2 className="font-semibold">Analytics</h2>

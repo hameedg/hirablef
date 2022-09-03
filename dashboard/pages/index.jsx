@@ -118,10 +118,21 @@ const UtilityBoard = () => {
               </div>
             </div>
             <div className="mt-7 flex space-x-4">
-              <Todo />
+              <div className="shadow-lg rounded-xl p-4 border min-w-[28.9rem] bg-white">
+                <div className="font-medium text-sm text-gray-800 pb-2">
+                  Currently we are experiencing a high volume of applications
+                  and we will notify you once the dates are available
+                </div>
+                <div className="todo-container flex flex-col  h-full">
+                  svg img
+                </div>
+              </div>
               <UpcomingInterviews />
             </div>
-            <Analytics />
+            <div className="mt-7 flex space-x-4">
+              <Todo />
+              <Analytics />
+            </div>
             <Banner1 />
             <Banner2 />
 

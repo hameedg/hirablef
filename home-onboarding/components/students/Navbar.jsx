@@ -12,18 +12,13 @@ import { useState } from 'react';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 
 const Navbar = () => {
-  const Links = [
-    { name: 'Colleges', links: '/colleges' },
-    { name: 'Students', links: '/students' },
-  ];
-
   const [open, setOpen] = useState(false);
 
   const router = useRouter();
 
   return (
     <>
-      <nav className="top-0 shadow-md sticky bg-white z-30 w-full h-20 border-b border-[#f9fafb] flex flex-col px-4 md:px-8 lg:px-12 justify-center">
+      <nav className="top-0 fixed bg-white z-50 w-full h-20 border-b border-[#f9fafb] flex flex-col px-4 md:px-8 lg:px-12 justify-center">
         <div className="flex items-center">
           <Link href="/" passHref>
             <div className="cursor-pointer">
@@ -51,6 +46,11 @@ const Navbar = () => {
                 >
                   Students
                 </a>
+              </Link>
+              <Link href="/companies" passHref>
+                <div className="block text-sm hover:text-[#0dbd8b] text-black cursor-pointer leading-[1.6em] ">
+                  Companies
+                </div>
               </Link>
             </div>
             <div className="flex items-center justify-between space-x-5">
@@ -105,12 +105,15 @@ const Navbar = () => {
                   <a
                     className={
                       router.pathname === '/students'
-                        ? 'text-[#ef2c5a] bg-[#fef1f0] text-sm rounded-full cursor-pointer block leading-[1.6em] px-3 py-1'
-                        : 'text-black bg-white text-sm rounded-full cursor-pointer block leading-[1.6em] px-3 py-1'
+                        ? 'text-[#ef2c5a] bg-[#fef1f0]  rounded-full cursor-pointer block leading-[1.6em] px-3 py-1'
+                        : 'text-black bg-white rounded-full cursor-pointer block leading-[1.6em] px-3 py-1'
                     }
                   >
                     Students
                   </a>
+                </Link>
+                <Link href="/companies" passHref>
+                  <a className="px-3">Companies</a>
                 </Link>
               </div>
 

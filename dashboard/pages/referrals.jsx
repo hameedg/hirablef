@@ -34,14 +34,14 @@ function referrals() {
                 <div>
                   <input
                     type="text"
-                    name="input"
+                    // disabled
                     placeholder="Search by name or email"
-                    className="appearance-none px-3 py-2 placeholder-[#6B7280] text-[#030303] placeholder-opacity-90 relative w-[318px] bg-white rounded text-sm border-[1.5px] focus:outline-none focus:border-[#2dc5a1] focus:border-2 transition duration-200 ease-in mt-1 bg-transparent h-[46px]"
+                    className="px-3 py-2 placeholder-[#6B7280] text-[#030303] placeholder-opacity-90 relative bg-white rounded text-sm border-[1.5px] focus:outline-none focus:border-[#2dc5a1] focus:border-2  w-full transition duration-200 ease-in"
                   />
                 </div>
                 <button
                   type="button"
-                  className="ml-2 w-[206px] outline-none text-white rounded-[5px] bg-collabbi-green text-[13.33px] font-semibold py-[8px] px-[15px] border-none mt-1 h-[48px]"
+                  className="outline-none w-[140px] text-white rounded-[5px] bg-collabbi-green text-[13.33px] font-semibold py-[8px] px-[15px] border-none m-1"
                 >
                   Send invite
                 </button>
@@ -49,7 +49,7 @@ function referrals() {
               <div className="flex items-center mt-2 justify-between">
                 <div>
                   <input
-                    className="appearance-none px-3 py-2 placeholder-[#6B7280] text-[#030303] placeholder-opacity-90 relative w-[318px] bg-white rounded text-sm border-[1.5px] focus:outline-none focus:border-[#2dc5a1] focus:border-2 transition duration-200 ease-in mt-1 bg-transparent h-[46px]"
+                    className="px-3 py-2 placeholder-[#6B7280] text-[#030303] placeholder-opacity-90 relative bg-white rounded text-sm border-[1.5px] focus:outline-none focus:border-[#2dc5a1] focus:border-2  w-full transition duration-200 ease-in"
                     type="text"
                     name="input"
                     placeholder="Code"
@@ -57,7 +57,7 @@ function referrals() {
                 </div>
                 <button
                   type="button"
-                  className="ml-2 w-[206px] outline-none text-white rounded-[5px] bg-collabbi-green text-[13.33px] font-semibold py-[8px] px-[15px] border-none mt-1 h-[48px]"
+                  className="outline-none w-[140px] text-white rounded-[5px] bg-collabbi-green text-[13.33px] font-semibold py-[8px] px-[15px] border-none m-1"
                 >
                   Copy invite link
                 </button>
