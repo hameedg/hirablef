@@ -108,7 +108,7 @@ const LandingPage = () => {
           <section
             data-aos="fade-right"
             data-aos-delay="440"
-            className="col-span-10 lg:col-span-4 pt-[19%]"
+            className="col-span-10 lg:col-span-4 pt-[25%]"
           >
             <h1
               className={` text-[40px] sm:text-[42px] tracking-normal sm:tracking-[-0.015em] leading-[60px] ${styles.fontGazpacho} font-extrabold  mb-8 sm-mid-tablet:text-3xl sm-mid-tablet:leading-snug`}

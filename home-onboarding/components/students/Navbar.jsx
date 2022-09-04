@@ -37,13 +37,7 @@ const Navbar = () => {
                 </div>
               </Link>
               <Link href="/students" passHref>
-                <a
-                  className={
-                    router.pathname === '/students'
-                      ? 'text-[#ef2c5a] bg-[#fef1f0] text-sm rounded-full cursor-pointer block leading-[1.6em] px-3 py-1'
-                      : 'text-black bg-white text-sm rounded-full cursor-pointer block leading-[1.6em] px-3 py-1'
-                  }
-                >
+                <a className="block text-sm hover:text-[#0dbd8b] text-black cursor-pointer leading-[1.6em] ">
                   Students
                 </a>
               </Link>
