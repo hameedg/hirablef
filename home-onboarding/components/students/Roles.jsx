@@ -8,6 +8,7 @@ import { Navigation, EffectCreative } from 'swiper';
 
 function Roles() {
   const roles = [
+    'Something Else?',
     "Founder's Associate",
     'Community Manager',
     'Influencer Marketing Specialist',
@@ -63,6 +64,29 @@ function Roles() {
           modules={[Navigation, EffectCreative]}
           className="mySwiper w-full relative"
         >
+          <SwiperSlide className="select-none">
+            <a className="mb-8 w-full px-4 lg:mb-0">
+              <div className="mx-auto mb-2 max-w-5xl h-[400px] rounded-[36px] bg-gray-100 p-10">
+                <h5
+                  className={`font-bold antialiased text-[30px] tracking-[-1px] leading-[1.3em] md:whitespace-pre-wrap text-black  text-center mb-2 max-w-2xl mx-auto ${styles.fontGazpacho} `}
+                >
+                  Something Else?
+                </h5>
+                <p className="text-black text-[1.125rem] tracking-[-0.015em] leading-[1.875rem] antialiased mb-2">
+                  Whether you are a journalism student or robotics is your
+                  interest or passionate about biotechnology, whatever
+                  background you are from or whatever your interests are, our
+                  platform helps you discover diverse roles. So, you will
+                  definitely find something that suits your passion. You might
+                  even feel surprised about some roles as you have never came
+                  across them till date.
+                </p>
+                <div className="text-[14px] text-center w-[150px] font-medium mx-auto leading-[25px] text-[#f97316] bg-[#f97316] bg-opacity-25 rounded-md mb-2">
+                  Something Else?
+                </div>
+              </div>
+            </a>
+          </SwiperSlide>
           <SwiperSlide className="select-none">
             <a className="mb-8 w-full px-4 lg:mb-0">
               <div className="mx-auto mb-2 max-w-5xl h-[400px] rounded-[36px] bg-gray-100 p-10">

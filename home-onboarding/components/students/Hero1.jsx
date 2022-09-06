@@ -221,6 +221,47 @@ function Hero1() {
           </div>
         </section>
 
+        <section className="relative py-8 md:py-12">
+          <div className="relative mx-auto max-w-7xl px-4 lg:px-4">
+            <div className="grid rounded-2xl pt-14 lg:min-h-[540px] lg:grid-cols-2 lg:grid-rows-1 lg:items-center lg:py-0 lg:text-left bg-white text-center">
+              <div className="ml-5 h-fit flex-row justify-end flex">
+                {/* <img
+                  className="object-cover bg-bottom"
+                  src="/images/student-hero.jpg"
+                  alt=""
+                /> */}
+                <img
+                  className="object-cover bg-bottom"
+                  src="/images/dashboard-01.svg"
+                  alt=""
+                />
+              </div>
+              <section
+                data-aos="fade-right"
+                data-aos-delay="440"
+                className="px-5 sm:px-10 md:px-16 md:py-10 "
+              >
+                <h1
+                  className={`font-black antialiased text-[40px] tracking-[-0.01em] leading-[50px] xl:text-[48px] xl:leading-[58px] md:whitespace-pre-wrap text-[#1E1928] ${styles.fontGazpacho} `}
+                >
+                  No applications, Only referrals
+                </h1>
+                <p className="font-normal pt-4 text-[18px] tracking-[-0.015em] leading-[2rem] whitespace-pre-wrap md:mb-0 text-black">
+                  Helping companies discover untapped talent and students
+                  discover their dream opportunities with personalized referrals
+                </p>
+                <p className="font-normal pt-2.5 text-[18px] tracking-[-0.015em] leading-[2rem] whitespace-pre-wrap md:mb-0 text-black">
+                  Lots of grads aren’t 100% sure which role they’d want to
+                  pursue, while others have a very specific idea of what they
+                  want to do. Either way - we can help! An interesting feature
+                  of Hirable is to help you figure out the roles you might be
+                  interested.
+                </p>
+              </section>
+            </div>
+          </div>
+        </section>
+
         <section
           data-aos="fade-up"
           data-aos-delay="220"
