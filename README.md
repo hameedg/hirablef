@@ -1,29 +1,88 @@
-# Next.js + Tailwind CSS Example
+![hirable](</public/images/hirable%20logo%20(gradient).svg>)
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v2.2)](https://blog.tailwindcss.com/tailwindcss-2-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+# Documentation of hirable frontend
 
-It uses the new [`Just-in-Time Mode`](https://tailwindcss.com/docs/just-in-time-mode) for Tailwind CSS.
+## Tech Stack
 
-## Preview
+**Client:** Next.js(react), Redux, TailwindCSS
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
+## Run Locally
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
-
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+Clone the project
 
 ```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
+  git clone https://github.com/Hirable-me/frontend.git
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+Go to the project directory
+
+```bash
+  cd frontend
+```
+
+Install dependencies
+
+```bash
+  npm install --force
+```
+
+Start the server
+
+```bash
+  npm run dev
+```
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your `.env.local` file
+
+`NEXT_PUBLIC_BACKEND_URL`
+
+`NEXT_PUBLIC_DASHBOARD_URL`
+
+## Project Routes & Sitemap
+
+`/` -> hosted url
+
+- /
+
+  - /aboutus
+  - /colleges
+  - /students
+  - /companies
+  - /socials
+  - /login
+  - /campus-ambassadors
+  - /mobile
+  - /test
+
+  1. /invite
+  2. /signup
+  3. /signup/verifyEmail
+  4. /signup/location
+  5. /signup/graduation
+  6. /signup/personalinfo
+  7. /signup/interests
+  8. /signup/experience
+  9. /signup/skills
+  10. /signup/connect
+  11. /signup/finish-registration
+
+- /dashboard
+  - /add-post
+  - /companies
+  - /events
+  - /for_you
+  - /hiring_challenges
+  - /ideas
+  - /job-openings
+  - /my-assignments
+  - /profile
+  - /referrals
+  - /roles
+  - /settings
+  - /wallet
+
+## Authors
+
+- [@ishre-yash](https://github.com/ishre-yash)

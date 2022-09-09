@@ -1,8 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import newUser from './slices/user';
-
+import newuser from './slices/user';
+import utils from './slices/utils';
+import user from './slices/userdashboard';
 export default configureStore({
   reducer: {
-    user: newUser,
+    newuser,
+    utils,
+    user,
   },
 });

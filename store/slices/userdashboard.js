@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import profileCompletion from '../utils/profileCompletion';
+import profileCompletion from '../../utils/profileCompletion';
 
 const slice = createSlice({
   name: 'user',
