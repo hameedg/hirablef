@@ -4,8 +4,8 @@ import sortBy from 'lodash/sortBy';
 import Button from '../components/common/Button';
 import CommonModal from './CommonModal';
 import Flash from '../components/svg/Flash';
-import Card from '../components/Companies/Card';
-import CardSkel from '../components/Companies/CardSkel';
+import Card from '../components/companies/Card';
+import CardSkel from '../components/companies/CardSkel';
 
 const Tags = ({ text }) => (
   <button

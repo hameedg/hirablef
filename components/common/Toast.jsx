@@ -1,7 +1,7 @@
 // redux
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { clearToastMessages } from '../../redux/utils';
+import { clearToastMessages } from '../../store/slices/utils';
 
 const Toast = () => {
   const toastMessages = useSelector((state) => state.utils.toastMessages);

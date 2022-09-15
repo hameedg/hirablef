@@ -1,6 +1,6 @@
 import sortBy from 'lodash/sortBy';
-import Card from '../components/Companies/Card';
-import CardSkel from '../components/Companies/CardSkel';
+import Card from '../components/companies/Card';
+import CardSkel from '../components/companies/CardSkel';
 import classNames from '../utils/constants/classNames';
 import CommonModal from './CommonModal';
 
@@ -23,7 +23,7 @@ const ComapanyModal = ({ handleClose, companyData }) => {
     noOfAssignments,
     teamSize,
     socialMedia,
-    companyWebsite
+    companyWebsite,
   } = companyData;
 
   const name = companyName;
@@ -157,11 +157,7 @@ const ComapanyModal = ({ handleClose, companyData }) => {
                   companyWebsite && (
                     <p className="font-medium text-xs mb-3 mt-4">
                       <span className="text-[#666]">Website:</span>{' '}
-                      <a
-                        href={companyWebsite}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
+                      <a href={companyWebsite} target="_blank" rel="noreferrer">
                         {companyWebsite}
                       </a>
                     </p>

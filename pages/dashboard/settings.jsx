@@ -14,7 +14,7 @@ import {
 } from '../../utils/apis/profile';
 
 // redux
-import { pushToastMessage } from '../../redux/utils';
+import { pushToastMessage } from '../../store/slices/utils';
 import Input from '../../components/common/Input';
 import InputMessage from '../../components/common/InputMessage';
 import InputError from '../../components/common/InputError';
@@ -184,7 +184,7 @@ const Settings = () => {
       handleSetErrors('otpLoad', 'Validating OTP');
       setOtp((f) => ({ ...f, isEnabled: false }));
       if (emailOtpModal) {
-        import('../utils/apis/profile').then(({ updateEmailConfirm }) => {
+        import('../../utils/apis/profile').then(({ updateEmailConfirm }) => {
           updateEmailConfirm(otpData, info.email, tempInfo.email)
             .then(() => {
               handleSetErrors('otpLoad', 'OTP Validated');
@@ -204,7 +204,7 @@ const Settings = () => {
             });
         });
       } else {
-        import('../utils/apis/profile').then(({ deleteAccountConfirm }) => {
+        import('../../utils/apis/profile').then(({ deleteAccountConfirm }) => {
           deleteAccountConfirm(otpData, info.email)
             .then(() => {
               handleSetErrors('otpLoad', 'OTP Validated');
