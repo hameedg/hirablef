@@ -148,141 +148,139 @@ const Login = () => {
       setLoading(false);
     }
   }, []);
-  return (
-    !loading && (
-      <div className="h-screen relative flex flex-col justify-center ">
-        <div
-          className="bg-cover bg-no-repeat blur-[2px] w-full h-full absolute z-10"
-          style={{
-            backgroundImage: 'url("/images/landing-page.png")',
-            backgroundPosition: '100%',
-          }}
-        />
+  return !loading && (
+    <div className="h-screen relative flex flex-col justify-center ">
+      <div
+        className="bg-cover bg-no-repeat blur-[2px] w-full h-full absolute z-10"
+        style={{
+          backgroundImage: 'url("/images/landing-page.png")',
+          backgroundPosition: '100%',
+        }}
+      />
 
-        <div className="max-w-5xl h-11/12  container m-auto bg-white shadow-xl rounded-xl z-20 max-h-[49rem] relative flex overflow-y-hidden">
-          <div
-            className="flex flex-col w-80.1 md:w-full bg-[#eff2f6] max-w-[20.938rem] justify-center rounded-l-xl !bg-bottom !bg-contain !bg-no-repeat"
-            style={{
-              backgroundImage: 'url(/images/modal-bottom.b7365c4c.png)',
-            }}
-          >
-            <div className="px-10 pt-10">
-              <h6 className="text-2xl font-semibold my-6 leading-[1.875rem]">
-                {forgetPass ? 'Forgot password ?' : 'Welcome Back'}
-              </h6>
-              <p className="text-sm mb-4 text-[#788699] mt-[.7rem]">
-                {forgetPass ? 'Enter Email to continue.' : 'Login to continue.'}
-              </p>
-            </div>
+      <div className="max-w-5xl h-11/12  container m-auto bg-white shadow-xl rounded-xl z-20 max-h-[49rem] relative flex overflow-y-hidden">
+        <div
+          className="flex flex-col w-80.1 md:w-full bg-[#eff2f6] max-w-[20.938rem] justify-center rounded-l-xl !bg-bottom !bg-contain !bg-no-repeat"
+          style={{
+            backgroundImage: 'url(/images/modal-bottom.b7365c4c.png)',
+          }}
+        >
+          <div className="px-10 pt-10">
+            <h6 className="text-2xl font-semibold my-6 leading-[1.875rem]">
+              {forgetPass ? 'Forgot password ?' : 'Welcome Back'}
+            </h6>
+            <p className="text-sm mb-4 text-[#788699] mt-[.7rem]">
+              {forgetPass ? 'Enter Email to continue.' : 'Login to continue.'}
+            </p>
           </div>
-          <div className="py-6 px-4 w-full md:w-max md:px-20 flex-grow overflow-y-auto">
-            <div className="pt-8 text-[#141820]">
-              {forgetPass ? (
-                <ForgotPassword handleClose={() => setForgetPass(false)} />
-              ) : (
-                <>
-                  <div className="w-full">
+        </div>
+        <div className="py-6 px-4 w-full md:w-max md:px-20 flex-grow overflow-y-auto">
+          <div className="pt-8 text-[#141820]">
+            {forgetPass ? (
+              <ForgotPassword handleClose={() => setForgetPass(false)} />
+            ) : (
+              <>
+                <div className="w-full">
+                  <button
+                    type="button"
+                    className="md:font-semibold w-full flex justify-center items-center border border-signup-blue rounded-sm mt-4 px-3 py-2.5 text-sm text-signup-blue"
+                  >
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/24px-Google_%22G%22_Logo.svg.png?20210618182606"
+                      alt="google signin"
+                      className="h-4 mr-3"
+                    />
+                    <p className="text-[15px]">Continue with Google</p>
+                  </button>
+                  <div
+                    className="flex justify-between mb-3.8 mt-[1.1625rem]"
+                    style={{ marginTop: '1.1625rem' }}
+                  >
+                    <hr className="w-full my-4 bg-[#dfe3eb]" />
+                    <p className="mx-2.5 mb-4 text-base antialiased">or</p>
+                    <hr className="w-full my-4 bg-[#dfe3eb]" />
+                  </div>
+                  <form onSubmit={onSubmit}>
+                    <Input
+                      label="Email"
+                      name="email"
+                      handleChange={handleChange}
+                      value={email}
+                      required
+                      placeholder="Enter Email"
+                      type="text"
+                    />
+                    {emailError && <Error error={emailError} />}
+                    <label
+                      className="my-2.5 font-semibold leading-relaxed block text-sm"
+                      style={{ color: '#201e27' }}
+                    >
+                      Password
+                    </label>
+                    <input
+                      placeholder="Enter Password"
+                      name="password"
+                      type={passwordToggle ? 'text' : 'password'}
+                      style={{ lineHeight: 1.15 }}
+                      onChange={handleChange}
+                      value={password}
+                      required
+                      className="rounded-md mb-2.5 border w-full text-sm p-2.5 transition-all border-gray-300 duration-300 ease-in focus:ring-0 focus:border-2 outline-none focus:border-focus-cyan"
+                    />
                     <button
+                      className="opacity-70 inline-block -mb-1 cursor-pointer -ml-8"
                       type="button"
-                      className="md:font-semibold w-full flex justify-center items-center border border-signup-blue rounded-sm mt-4 px-3 py-2.5 text-sm text-signup-blue"
+                      onClick={() => setPasswordToggle(!passwordToggle)}
                     >
                       <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/24px-Google_%22G%22_Logo.svg.png?20210618182606"
-                        alt="google signin"
-                        className="h-4 mr-3"
+                        alt="Password toggle"
+                        src={
+                          passwordToggle
+                            ? '/svg/password-eye-unhide.svg'
+                            : '/svg/password-eye.svg'
+                        }
+                        width={20}
+                        height={20}
                       />
-                      <p className="text-[15px]">Continue with Google</p>
                     </button>
-                    <div
-                      className="flex justify-between mb-3.8 mt-[1.1625rem]"
-                      style={{ marginTop: '1.1625rem' }}
-                    >
-                      <hr className="w-full my-4 bg-[#dfe3eb]" />
-                      <p className="mx-2.5 mb-4 text-base antialiased">or</p>
-                      <hr className="w-full my-4 bg-[#dfe3eb]" />
-                    </div>
-                    <form onSubmit={onSubmit}>
-                      <Input
-                        label="Email"
-                        name="email"
-                        handleChange={handleChange}
-                        value={email}
-                        required
-                        placeholder="Enter Email"
-                        type="text"
-                      />
-                      {emailError && <Error error={emailError} />}
-                      <label
-                        className="my-2.5 font-semibold leading-relaxed block text-sm"
-                        style={{ color: '#201e27' }}
-                      >
-                        Password
-                      </label>
-                      <input
-                        placeholder="Enter Password"
-                        name="password"
-                        type={passwordToggle ? 'text' : 'password'}
-                        style={{ lineHeight: 1.15 }}
-                        onChange={handleChange}
-                        value={password}
-                        required
-                        className="rounded-md mb-2.5 border w-full text-sm p-2.5 transition-all border-gray-300 duration-300 ease-in focus:ring-0 focus:border-2 outline-none focus:border-focus-cyan"
-                      />
-                      <button
-                        className="opacity-70 inline-block -mb-1 cursor-pointer -ml-8"
-                        type="button"
-                        onClick={() => setPasswordToggle(!passwordToggle)}
-                      >
-                        <img
-                          alt="Password toggle"
-                          src={
-                            passwordToggle
-                              ? '/svg/password-eye-unhide.svg'
-                              : '/svg/password-eye.svg'
-                          }
-                          width={20}
-                          height={20}
-                        />
-                      </button>
-                      {passwordError && <Error error={passwordError} />}
+                    {passwordError && <Error error={passwordError} />}
 
-                      <button
-                        type="submit"
-                        disabled={!validated}
-                        className="bg-signup-blue mt-[1.55rem] mx-auto mb-12 w-36 disabled:cursor-default disabled:bg-opacity-50  text-sm block text-white px-3 py-2.5 rounded-md transition-all duration-200 ease-in font-bold"
-                      >
-                        Login
-                      </button>
-                    </form>
-                  </div>
-                  <div className="my-0 mx-[10%]">
-                    <hr className="my-5 mx-auto bg-[#ebedf1]" />
-                    <p className="mt-5 mb-4 text-center text-[15px] text-[#788699]">
-                      Don’t have an account?{' '}
-                      <Link href="/signup" passHref>
-                        <span className="text-signup-blue font-semibold cursor-pointer">
-                          Sign Up
-                        </span>
-                      </Link>
-                    </p>
-                    <p className="mt-5 mb-4 text-center text-[15px] text-[#788699]">
-                      Forgot your password?{' '}
-                      <button
-                        onClick={() => setForgetPass(true)}
-                        type="button"
-                        className="text-signup-blue font-semibold"
-                      >
-                        Recover password
-                      </button>
-                    </p>
-                  </div>
-                </>
-              )}
-            </div>
+                    <button
+                      type="submit"
+                      disabled={!validated}
+                      className="bg-signup-blue mt-[1.55rem] mx-auto mb-12 w-36 disabled:cursor-default disabled:bg-opacity-50  text-sm block text-white px-3 py-2.5 rounded-md transition-all duration-200 ease-in font-bold"
+                    >
+                      Login
+                    </button>
+                  </form>
+                </div>
+                <div className="my-0 mx-[10%]">
+                  <hr className="my-5 mx-auto bg-[#ebedf1]" />
+                  <p className="mt-5 mb-4 text-center text-[15px] text-[#788699]">
+                    Don’t have an account?{' '}
+                    <Link href="/signup" passHref legacyBehavior>
+                      <span className="text-signup-blue font-semibold cursor-pointer">
+                        Sign Up
+                      </span>
+                    </Link>
+                  </p>
+                  <p className="mt-5 mb-4 text-center text-[15px] text-[#788699]">
+                    Forgot your password?{' '}
+                    <button
+                      onClick={() => setForgetPass(true)}
+                      type="button"
+                      className="text-signup-blue font-semibold"
+                    >
+                      Recover password
+                    </button>
+                  </p>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>
-    )
+    </div>
   );
 };
 

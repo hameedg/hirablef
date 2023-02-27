@@ -43,12 +43,12 @@ const SettingsModal = ({ handleCancel }) => {
         </button>
       </div>
       <div className="py-1">
-        <Link href="/settings" passHref>
+        <Link href="/settings" passHref legacyBehavior>
           <div className="py-3 duration-150 ease-in px-6 cursor-pointer text-sm leading-6.8 hover:bg-hover">
             <span>Settings</span>
           </div>
         </Link>
-        <Link href="/settings" passHref>
+        <Link href="/settings" passHref legacyBehavior>
           <div className="py-3 px-6 duration-150 ease-in cursor-pointer text-sm leading-6.8 hover:bg-hover">
             <span>Referrals</span>
           </div>

@@ -29,7 +29,7 @@ const OtherComponents = () => {
 
       {/* Company Cards */}
       <div className="flex items-center justify-center">
-        <div className="mx-[50px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-5">
+        {/* <div className="mx-[50px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-5">
           <div className="col-span-1">
             <CompanyCards2
               title={'Software Engineering Intern'}
@@ -72,7 +72,7 @@ const OtherComponents = () => {
               image={'tiktok logo'}
             />
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Divider */}

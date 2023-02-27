@@ -53,7 +53,7 @@ function Todo() {
   );
 
   const ActiveTask = (props) => (
-    <Link href={props.link} passHref>
+    <Link href={props.link} passHref legacyBehavior>
       <div className="flex items-center text-[13px] bg-indigo-100 text-blue-500 font-semibold mt-3 p-2 rounded-lg cursor-pointer hover:bg-indigo-200">
         <img className="pr-2 h-[14px]" alt="plus" src={plus.src} />
 

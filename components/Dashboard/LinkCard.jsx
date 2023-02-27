@@ -2,7 +2,7 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 
 const LinkCard = ({ url, image, text, ...props }) => (
-  <Link href={url} passHref>
+  <Link href={url} passHref legacyBehavior>
     <div
       {...props}
       className="rounded-2xl bg-white hover:scale-105 border border-[#ebecee] shadow-md cursor-pointer relative duration-300 ease-in-out w-[13.75rem] h-[8.5rem]"

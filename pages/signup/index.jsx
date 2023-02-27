@@ -187,6 +187,7 @@ const SignUp = () => {
 
   return (
     // <Backdrop>
+    // </Backdrop>
     <div className="flex w-screen h-screen overflow-y-hidden bg-white">
       <div
         className="w-[40%] flex flex-col justify-center !bg-bottom !bg-contain !bg-no-repeat"
@@ -312,17 +313,16 @@ const SignUp = () => {
               style={{ fontSize: '15px', color: '#788699' }}
             >
               Already have an account?{' '}
-              <Link href="/login">
-                <a className="font-semibold cursor-pointer text-signup-blue">
+              <Link href="/login" className="font-semibold cursor-pointer text-signup-blue">
+                
                   Log In
-                </a>
+                
               </Link>
             </p>
           </div>
         </div>
       </div>
     </div>
-    // </Backdrop>
   );
 };
 

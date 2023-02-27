@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from '../../../utils/constants/classNames';
 
 const SidebarItems = ({ url, isActive, linkText, children: icon }) => (
-  <Link passHref href={url}>
+  <Link passHref href={url} legacyBehavior>
     <div
       className={classNames(
         'flex items-center px-6 cursor-pointer h-12 relative rounded-r-md w-11/12',

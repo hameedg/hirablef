@@ -25,7 +25,7 @@ const HeaderNav = () => {
             <br />
             chances of finding the opportunities significantly
           </div>
-          <Link href="/dashboard/profile" passHref>
+          <Link href="/dashboard/profile" passHref legacyBehavior>
             <button
               type="button"
               className="outline-none border-none pt-2 pb-pb-progress-btn pr-4 pl-4 font-semibold h-9 bg-progress-btn text-white rounded-md cursor-pointer text-font-progress-btn"

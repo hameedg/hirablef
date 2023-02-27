@@ -5,7 +5,7 @@ import styles from '../styles/student.module.css';
 const mobile = () => {
   return (
     <div>
-      <Link href="/" passHref>
+      <Link href="/" passHref legacyBehavior>
         <div className="cursor-pointer px-4 py-4 md:px-8">
           <img
             alt="hirable"

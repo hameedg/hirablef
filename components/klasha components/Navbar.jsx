@@ -21,7 +21,7 @@ const Navbar = () => {
     <div className="z-10 text-sm shadow-md w-full sticky top-0 left-0">
       <div className="md:flex  items-center justify-between bg-white py-5 md:px-12">
         <div className="md:flex text-sm items-center justify-start space-x-10">
-          <Link href="/" passHref>
+          <Link href="/" passHref legacyBehavior>
             <div className="cursor-pointer">
               <img
                 alt="hirable"
@@ -31,36 +31,39 @@ const Navbar = () => {
             </div>
           </Link>
           <div className="lg:flex lg:items-center lg:justify-between bg-white lg:py-5 lg:px-12 hidden">
-            <Link href="/test" passHref>
-              <a
-                className={
-                  router.pathname === '/test' ? activeLink : normalLink
-                }
-              >
-                <p className="text-sm">Colleges</p>
-              </a>
+            <Link
+              href="/test"
+              passHref
+              className={
+                router.pathname === '/test' ? activeLink : normalLink
+              }>
+
+              <p className="text-sm">Colleges</p>
+
             </Link>
-            <Link href="/students" passHref>
-              <a
-                className={
-                  router.pathname === '/students' ? activeLink : normalLink
-                }
-              >
-                <p className="text-sm">Students</p>
-              </a>
+            <Link
+              href="/students"
+              passHref
+              className={
+                router.pathname === '/students' ? activeLink : normalLink
+              }>
+
+              <p className="text-sm">Students</p>
+
             </Link>
-            <Link href="/login" passHref>
-              <a
-                className={
-                  router.pathname === '/login' ? activeLink : normalLink
-                }
-              >
-                <p className="text-sm">Login</p>
-              </a>
+            <Link
+              href="/login"
+              passHref
+              className={
+                router.pathname === '/login' ? activeLink : normalLink
+              }>
+
+              <p className="text-sm">Login</p>
+
             </Link>
           </div>
           <div className="lg:block hidden">
-            <Link href="/invite" passHref>
+            <Link href="/invite" passHref legacyBehavior>
               <button
                 type="button"
                 // onClick={() => setSignup(true)}
@@ -92,12 +95,12 @@ const Navbar = () => {
               <Link
                 className="text-black hover:text-[#2536eb] font-semibold duration-500"
                 href={link.links}
-              >
+                legacyBehavior>
                 {link.name}
               </Link>
             </li>
           ))}
-          <Link href="/mobile" passHref>
+          <Link href="/mobile" passHref legacyBehavior>
             <div className="block text-base  mr-3 text-black cursor-pointer leading-[1.6em] ">
               Login
             </div>

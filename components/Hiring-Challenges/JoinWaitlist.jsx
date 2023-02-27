@@ -44,7 +44,7 @@ export default function JoinWaitlist() {
             </div>
             <div className="text-center px-5 pb-5 flex flex-wrap content-center float-right h-fit ">
               {data.buttonText ? (
-                <Link href="/dashboard/profile" passHref>
+                <Link href="/dashboard/profile" passHref legacyBehavior>
                   <button
                     type="button"
                     className="outline-none border-none pt-2 pb-pb-progress-btn pr-4 pl-4 font-semibold h-9 bg-progress-btn text-white rounded-md cursor-pointer text-font-progress-btn"
