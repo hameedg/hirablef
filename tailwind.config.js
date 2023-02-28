@@ -308,7 +308,6 @@ module.exports = {
     },
   },
   plugins: [
-    require('@graxmonzo/tailwind-caret-color'),
     require('tailwind-scrollbar-hide'),
     require('@tailwindcss/line-clamp'),
   ],
