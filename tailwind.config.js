@@ -307,8 +307,5 @@ module.exports = {
       fill: ['hover', 'focus'],
     },
   },
-  plugins: [
-    require('tailwind-scrollbar-hide'),
-    require('@tailwindcss/line-clamp'),
-  ],
+  plugins: [require('@tailwindcss/line-clamp')],
 };
