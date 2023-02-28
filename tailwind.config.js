@@ -307,5 +307,4 @@ module.exports = {
       fill: ['hover', 'focus'],
     },
   },
-  plugins: [require('@tailwindcss/line-clamp')],
 };
