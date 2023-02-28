@@ -71,6 +71,9 @@
       "overrides": {
         "foo": "$foo",
         "bar": "$foo"
+      },
+      "engines": {
+      
+        "node": "16.X"
       }
-    
 }
