@@ -97,10 +97,10 @@ function Logos() {
         data-aos-delay="220"
       >
         <h3
-          className={`leading-first tracking-[-1px] sm-mid-tablet:leading-snug ${styles.fontGazpacho} md:text-sec md:leading-sec font-body mb-8 font-semibold `}
+          className={`leading-first tracking-[-1px] sm-mid-tablet:leading-snug grotesk md:text-sec md:leading-sec font-body mb-8 font-semibold `}
           style={{
-            fontSize: '30px',
-            fontWeight: '700',
+            fontSize: '2.25rem',
+            fontWeight: '600',
           }}
         >
           They can be your future employers

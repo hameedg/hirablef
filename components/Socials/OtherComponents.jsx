@@ -14,7 +14,7 @@ const OtherComponents = () => {
       <div className=" flex flex-col items-center justify-start mt-16">
         {/* Tagline */}
         <h2
-          className={`px-4 ${styles.fontGazpacho} w-fit lg:max-w-[780px] text-center font-inter text-[30px]  font-bold tracking-[-1px] leading-[1.3em]`}
+          className={`px-4 grotesk w-fit lg:max-w-[780px] text-center  text-[30px]  font-semibold tracking-[-1px] leading-[1.3em]`}
         >
           Today's top companies are hiring
         </h2>
@@ -121,7 +121,7 @@ const OtherComponents = () => {
         {/* Second Tagline */}
         <div className="flex flex-col items-center justify-start">
           <h2
-            className={` ${styles.fontGazpacho} w-fit px-4  text-center lg:max-w-[780px] font-inter text-[30px]  font-bold tracking-[-1px] leading-[1.3em]`}
+            className={` grotesk w-fit px-4  text-center lg:max-w-[780px] font-inter text-[30px]  font-semibold tracking-[-1px] leading-[1.3em]`}
           >
             Ideas for you
           </h2>
@@ -175,8 +175,8 @@ const OtherComponents = () => {
             <div className="flex md:flex-row flex-col mx-auto py-[32px] px-[24px] w-full items-start justify-start md:justify-between">
               <div className="float-left flex flex-col justify-start items-start text-lg leading-[1.4em] ">
                 {/* Title */}
-                <div className=" text-left font-inter font-bold leading-[1.25em]">
-                  Hirable brings the best opportunities to you
+                <div className=" text-left font-inter font-semibold leading-[1.25em]">
+                  SmartGrad brings the best opportunities to you
                 </div>
                 {/* Sub Title*/}
                 <div className="font-inter text-left my-2">

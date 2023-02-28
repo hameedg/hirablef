@@ -18,7 +18,7 @@ function Hero1() {
                 className="px-5 sm:px-10 md:px-16 md:py-10 "
               >
                 <h1
-                  className={`font-black antialiased text-[40px] tracking-[-0.01em] leading-[50px] xl:text-[48px] xl:leading-[58px] md:whitespace-pre-wrap text-[#1E1928] ${styles.fontGazpacho} `}
+                  className={`font-semibold antialiased text-[40px] tracking-[-0.01em] leading-[50px] xl:text-[48px] xl:leading-[58px] md:whitespace-pre-wrap text-[#1E1928] grotesk `}
                 >
                   Get hired by companies looking for diverse talent
                 </h1>

@@ -6,14 +6,14 @@ const RoleComponent = () => {
   return (
     <div className=" max-w-full lg:max-w-[1320px] mb-10 mx-auto px-4 lg:px-[50px] w-full ">
       <h1
-        className={`text-center max-w-[700px] ${styles.fontGazpacho} mb-8 lg:mb-[60px] mx-auto font-bold text-[32px] leading-[140%] tracking-[-0.02em] `}
+        className={`text-center max-w-[700px] grotesk mb-8 lg:mb-[60px] mx-auto font-bold text-[32px] leading-[140%] tracking-[-0.02em] `}
       >
         What will your role as a Hirable campus ambassador entail?
       </h1>
       <div className="flex lg:flex-row flex-col gap-0 lg:gap-[40px] ">
         <div className="bg-white mt-6 lg:mt-0 border-[1px] border-black rounded-[8px] p-8 lg:p-10 flex-grow  lg:flex-grow-0 flex-shrink basis-[100%] lg:basis-[22%] ">
           <p
-            className={`font-medium ${styles.fontGazpacho} w-[182px] tracking-[-0.02em] mb-[8px] text-[24px] leading-[133%] `}
+            className={`font-medium grotesk w-[182px] tracking-[-0.02em] mb-[8px] text-[24px] leading-[133%] `}
           >
             Learn
           </p>
@@ -24,7 +24,7 @@ const RoleComponent = () => {
         </div>
         <div className="bg-white mt-6 lg:mt-0  border-[1px] border-black rounded-[8px] p-8 lg:p-10 flex-grow  lg:flex-grow-0 flex-shrink basis-[100%] lg:basis-[22%] ">
           <p
-            className={`font-medium ${styles.fontGazpacho} w-[182px] tracking-[-0.02em] mb-[8px] text-[24px] leading-[133%] `}
+            className={`font-medium grotesk w-[182px] tracking-[-0.02em] mb-[8px] text-[24px] leading-[133%] `}
           >
             Brainstrom
           </p>
@@ -35,7 +35,7 @@ const RoleComponent = () => {
         </div>
         <div className="bg-white mt-6 lg:mt-0  border-[1px] border-black rounded-[8px] p-8 lg:p-10 flex-grow  lg:flex-grow-0 flex-shrink basis-[100%] lg:basis-[22%] ">
           <p
-            className={`font-medium ${styles.fontGazpacho} w-[182px] tracking-[-0.02em] mb-[8px] text-[24px] leading-[133%] `}
+            className={`font-medium grotesk w-[182px] tracking-[-0.02em] mb-[8px] text-[24px] leading-[133%] `}
           >
             Spearhead
           </p>
@@ -46,7 +46,7 @@ const RoleComponent = () => {
         </div>
         <div className="bg-white mt-6 lg:mt-0  border-[1px] border-black rounded-[8px] p-8 lg:p-10 flex-grow  lg:flex-grow-0 flex-shrink basis-[100%] lg:basis-[22%] ">
           <p
-            className={`font-medium ${styles.fontGazpacho} w-[182px] tracking-[-0.02em] mb-[8px] text-[24px] leading-[133%] `}
+            className={`font-medium grotesk w-[182px] tracking-[-0.02em] mb-[8px] text-[24px] leading-[133%] `}
           >
             Grow
           </p>

@@ -11,12 +11,12 @@ const HeroSection = () => {
           <div className="grid rounded-2xl pt-14 lg:min-h-[540px] lg:grid-cols-2 lg:grid-rows-1 lg:items-center lg:py-0 lg:text-left bg-white text-center">
             <div className="px-5 sm:px-10 md:px-16 md:py-10 ">
               <h1
-                className={`font-black antialiased text-[40px] tracking-[-0.01em] leading-[50px] xl:text-[48px] xl:leading-[58px] md:whitespace-pre-wrap text-[#1E1928] ${styles.fontGazpacho} `}
+                className={`font-semibold antialiased text-[2.625rem] tracking-[-0.01em] leading-[55px] xl:text-[48px] xl:leading-[58px] md:whitespace-pre-wrap text-[#1E1928] grotesk `}
               >
                 Transforming the educational opportunities
               </h1>
-              <p className="font-normal   mb-4 text-[18px] tracking-[-0.015em] leading-[2rem] whitespace-pre-wrap py-4 md:mb-0 md:py-8 text-black">
-                Hirable is transforming the university recruiting of future.
+              <p className="font-normal  mb-4 text-[18px] tracking-[-0.015em] leading-[2rem] whitespace-pre-wrap py-4 md:mb-0 md:py-8 text-black">
+                SmartGrad is transforming the university recruiting of future.
                 Give your students unique exposure to companies and get them
                 noticed
               </p>
@@ -84,13 +84,13 @@ const HeroSection = () => {
           <div className="ml-8 flex flex-col items-center justify-center text-center mid-lg:mt-8 mt-0">
             {/* Sub Heading */}
             <p
-              className={`font-medium text-[20px] sm:text-[22px] ${styles.fontGazpacho} text-center mb-4 max-w-[960px] mx-auto `}
+              className={`font-medium text-[20px] sm:text-[22px] grotesk text-center mb-4 max-w-[960px] mx-auto `}
             >
               Company Sponsored
             </p>
             {/* Heading */}
             <h2
-              className={`font-inter ${styles.fontGazpacho} text-[30px]  md:text-[40px] mb-8 font-extrabold leading-[1.3em] tracking-wide md:tracking-[-.015em] text-center  max-w-[960px]  mx-auto `}
+              className={`font-inter grotesk text-[30px]  md:text-[40px] mb-8 font-extrabold leading-[1.3em] tracking-wide md:tracking-[-.015em] text-center  max-w-[960px]  mx-auto `}
             >
               <TextLoop className="text-center mx-auto" fade="true">
                 <span>Scholarship</span>

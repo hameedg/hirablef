@@ -7,7 +7,7 @@ const Testimonials = () => {
       <div className=" max-w-[1320px] mx-auto px-4 lg:px-[50px] w-full ">
         <div className="flex flex-col lg:flex-row  justify-between items-start lg:items-center gap-0 lg:gap-[40px] ">
           <h2
-            className={` max-w-full mb-8 ${styles.fontGazpacho} lg:mb-0  lg:max-w-[456px] font-medium text-[40px] lg:text-[64px] leading-[110%] lg:leading-[120%] tracking-[-0.02em] `}
+            className={` max-w-full mb-8 grotesk lg:mb-0  lg:max-w-[456px] font-medium text-[40px] lg:text-[64px] leading-[110%] lg:leading-[120%] tracking-[-0.02em] `}
           >
             Testimonials from campus ambassadors
           </h2>

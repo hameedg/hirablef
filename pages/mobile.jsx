@@ -17,7 +17,7 @@ const mobile = () => {
 
       <div className="mt-10 mx-5 flex flex-col items-start justify-start space-y-10">
         <h1
-          className={`text-[30px] ${styles.fontGazpacho} font-extrabold tracking-normal leading-[1.375em] `}
+          className={`text-[30px] grotesk font-extrabold tracking-normal leading-[1.375em] `}
         >
           Start your career with Hirable
         </h1>

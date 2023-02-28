@@ -1,5 +1,6 @@
 import '../styles/globals.css';
 import '../styles/animations.css';
+import '../styles/cabinet-grotesk.css';
 import { Provider } from 'react-redux';
 import store from '../store';
 

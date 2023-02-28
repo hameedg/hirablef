@@ -9,7 +9,7 @@ const AboutUs = () => {
         {/* Heading */}
         <div className="lg:max-w-[650px] h-[150px] sm:h-[100px] lg:h-[150px] text-center w-full">
           <h1
-            className={`font-black antialiased text-[40px] tracking-[-0.01em] leading-[110%] lg:text-[50px] xl:leading-[130%] md:whitespace-pre-wrap text-[#1E1928] ${styles.fontGazpacho} `}
+            className={`font-black antialiased text-[40px] tracking-[-0.01em] leading-[110%] lg:text-[50px] xl:leading-[130%] md:whitespace-pre-wrap text-[#1E1928] grotesk `}
           >
             Establishing a new way of
             <span className="text-[#ef2c5a] lg:inline-flex ml-3">

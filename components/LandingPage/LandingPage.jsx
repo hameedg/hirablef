@@ -103,7 +103,7 @@ const LandingPage = () => {
 
   return (
     <div className="bg-white">
-      <div className="home-img border-0 bg-no-repeat bg-cover h-[100vh] sm-mid-tablet:bg-bottom bg-right">
+      <div className="home-img border-0 bg-no-repeat bg-cover h-[100vh] sm-mid-tablet:bg-bottom bg-right 2xl:h-[80vh]">
         <div className="sm:grid sm:grid-cols-10 sm:gap-3 md:gap-6 mx-auto max-w-screen-xl px-6 md:px-12">
           <section
             data-aos="fade-right"
@@ -111,7 +111,7 @@ const LandingPage = () => {
             className="col-span-10 lg:col-span-4 pt-[25%]"
           >
             <h1
-              className={` text-[40px] sm:text-[42px] tracking-normal sm:tracking-[-0.015em] leading-[60px] ${styles.fontGazpacho} font-extrabold  mb-8 sm-mid-tablet:text-3xl sm-mid-tablet:leading-snug`}
+              className={`text-[40px] sm:text-[42px] tracking-normal sm:tracking-[-0.015em] leading-[55px] grotesk font-bold mb-8 sm-mid-tablet:text-3xl sm-mid-tablet:leading-snug`}
             >
               Bridging companies and campuses to
               <span className="text-purple-500"> empower students</span>
@@ -131,7 +131,9 @@ const LandingPage = () => {
         data-aos-delay="220"
       >
         <h3
-          className={`text-[30px] sm-mid-tablet:leading-snug antialiased tracking-[-1px]  ${styles.fontGazpacho} text-center font-bold mb-6`}
+          className={
+            ' sm-mid-tablet:leading-snug antialiased tracking-[-1px] grotesk text-center text-[2.25rem] font-semibold mb-6'
+          }
         >
           Creating an ecosystem of opportunities
         </h3>
@@ -159,9 +161,9 @@ const LandingPage = () => {
         /> */}
           <div className="ml-8 flex flex-col items-center justify-center text-center mid-lg:mt-8 mt-0">
             <h3
-              className={`text-[30px] sm-mid-tablet:leading-snug antialiased tracking-[-1px]  ${styles.fontGazpacho} text-center font-bold mb-6`}
+              className={`text-[2.25rem] sm-mid-tablet:leading-snug antialiased tracking-[-1px] grotesk text-center font-semibold mb-6`}
             >
-              Introducing Hirable
+              Introducing SmartGrad
             </h3>
             <p className="text-lg text-center  md:max-w-[850px] tracking-[-.015em] mb-8 leading-[1.875rem]">
               Recent graduates want great jobs. Companies want great talent.
@@ -192,7 +194,7 @@ const LandingPage = () => {
                   </div>
                   <div className="p-10">
                     <div
-                      className={`text-black ${styles.fontGazpacho} text-[18px] leading-6 md:leading-7 md:text-lg antialiased tracking-tight font-bold`}
+                      className={`text-black grotesk text-[1.5rem] leading-6 md:leading-7 md:text-lg antialiased tracking-normal font-semibold`}
                     >
                       For Students
                     </div>
@@ -213,7 +215,7 @@ const LandingPage = () => {
                   </div>
                   <div className="p-10">
                     <div
-                      className={`text-black ${styles.fontGazpacho} text-[18px] leading-6 md:leading-7 md:text-lg antialiased tracking-tight font-bold`}
+                      className={`text-black grotesk text-[1.5rem] leading-6 md:leading-7 md:text-lg antialiased tracking-normal font-semibold`}
                     >
                       For companies
                     </div>
@@ -234,7 +236,7 @@ const LandingPage = () => {
                   </div>
                   <div className="p-10">
                     <div
-                      className={`text-black ${styles.fontGazpacho} text-[18px] leading-6 md:leading-7 md:text-lg antialiased tracking-tight font-bold`}
+                      className={`text-black grotesk text-[1.5rem] leading-6 md:leading-7 md:text-lg antialiased tracking-normal font-semibold`}
                     >
                       For colleges
                     </div>

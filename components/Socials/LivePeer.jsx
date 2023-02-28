@@ -12,7 +12,7 @@ const LivePeer = () => {
         </p>
         {/* Heading */}
         <h2
-          className={`font-inter ${styles.fontGazpacho} text-[30px]  md:text-[40px] mb-8 font-extrabold leading-[1.3em] tracking-wide md:tracking-[-.015em] text-center  max-w-[960px]  mx-auto `}
+          className={`font-inter grotesk text-[30px]  md:text-[40px] mb-8 font-semibold leading-[1.3em] tracking-wide md:tracking-[-.015em] text-center  max-w-[960px]  mx-auto `}
         >
           Communities to explore, ideate, collaborate & get rewarded
         </h2>

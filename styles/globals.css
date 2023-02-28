@@ -4,6 +4,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.grotesk{
+font-family: 'CabinetGrotesk-Variable';   
+}
+
 
 @layer base {
   html,
@@ -118,18 +122,18 @@
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .home-img {
-    background-image: url('/images/landing-page-t.png');
+    background-image: url('https://ik.imagekit.io/internquest/Intern_Quest/smartgrad_landing_page_1280_720P.png');
   }
 }
 @media (min-width: 1025px) and (max-width: 1280px) {
   .home-img {
-    background-image: url('/images/landing-page-l.png');
+    background-image: url('https://ik.imagekit.io/internquest/Intern_Quest/smartgrad_landing_page_1536_722P.png');
   }
 }
 
 @media (min-width: 1281px) {
   .home-img {
-    background-image: url('/images/landing-page.png');
+    background-image: url('https://ik.imagekit.io/internquest/Intern_Quest/smartgrad_landing_page_1920_800P.png');
   }
 }
 

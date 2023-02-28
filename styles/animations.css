@@ -1,4 +1,80 @@
+/* .fadeout {
+  visibility: visible;
+  opacity: 0.8;
+  transition: visibility 0s linear 300ms, opacity 300ms;
+  -o-animation: animationName 10s infinite;
+  -moz-animation: animationName 10s infinite;
+
+
+
+}
+.fadein {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear 0s, opacity 300ms;
+  -o-animation: animationName 10s infinite;
+  -moz-animation: animationName 10s infinite;
+
+
+}
+@keyframes animationName {
+  0%   { opacity:0; }
+  50%  { opacity:1; }
+  100% { opacity:0; }
+}
+@-o-keyframes animationName{
+  0%   { opacity:0; }
+  50%  { opacity:1; }
+  100% { opacity:0; }
+}
+@-moz-keyframes animationName{
+  0%   { opacity:0; }
+  50%  { opacity:1; }
+  100% { opacity:0; }
+}
+@-webkit-keyframes animationName{
+  0%   { opacity:0; }
+  50%  { opacity:1; }
+  100% { opacity:0; }
+}   */
+
 .fadeout {
+  visibility: visible;
+  opacity: 0.8;
+  transition: visibility 0s linear 300ms, opacity 300ms;
+
+
+
+
+}
+.fadein {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear 0s, opacity 300ms;
+
+
+
+} 
+
+ @keyframes changeText {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+
+  }
+  50%{
+    opacity: 1;
+  }
+} 
+
+
+/* animation: changeText 8s linear; */
+
+
+/* .fadeout {
   opacity: 0;
   transition: visibility 0s 2s, opacity 2s linear;
 }
@@ -24,4 +100,4 @@
     opacity: 1;
     scale: 1;
   }
-}
+} */
