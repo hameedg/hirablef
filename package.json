@@ -64,12 +64,13 @@
     "prettier": "^2.4.1",
     "tailwindcss": "^2.2.15"
   },
-
-    "overrides": {
-      "foo": {
-        ".": "1.0.0",
-        "bar": "1.0.0"
+ 
+      "dependencies": {
+        "foo": "^1.0.0"
+      },
+      "overrides": {
+        "foo": "$foo",
+        "bar": "$foo"
       }
-    }
-
+    
 }
